@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -13,6 +12,7 @@ interface ProjectDetailsModalProps {
     image: string;
     additionalImages?: string[];
     videoUrl?: string;
+    videoFile?: string;
   };
 }
 
@@ -47,7 +47,24 @@ const ProjectDetailsModal = ({ isOpen, onClose, project }: ProjectDetailsModalPr
             <p className="text-gray-700">{project.description}</p>
           </div>
           
-          {project.videoUrl && (
+          {project.videoFile && (
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Program Video</h3>
+              <div className="aspect-video w-full overflow-hidden rounded-lg">
+                <video 
+                  width="100%" 
+                  height="100%" 
+                  controls
+                  className="w-full h-full"
+                >
+                  <source src={project.videoFile} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          )}
+          
+          {project.videoUrl && !project.videoFile && (
             <div>
               <h3 className="text-xl font-semibold mb-2">Program Video</h3>
               <div className="aspect-video w-full overflow-hidden rounded-lg">

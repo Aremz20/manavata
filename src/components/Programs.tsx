@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
@@ -13,7 +12,7 @@ const Programs = () => {
       description: "Providing immediate food assistance to communities affected by conflict and natural disasters, reaching over 10,000 families annually.",
       image: "/media/31dd079d-1e8e-4b7e-b0ed-da0e0a28cc89.jpeg",
       additionalImages: ["/media/103c8f88-506c-4c97-aa95-6288ac08ad0e.jpeg", "/media/d16acbe4-0a46-4623-8257-274e2b67653f.jpeg", "/media/8e4bf7d2-f460-46f8-be7d-47e93f75823f.jpeg"],
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Example YouTube embed URL
+      videoFile: "/media/4b124e3b-dff5-4421-9980-d35a8ccfe85b.mp4.mp4", 
     },
     {
       title: "Education Programs",
@@ -26,7 +25,8 @@ const Programs = () => {
       description: "Implementing health clinics and sanitization projects to improve health outcomes and prevent disease in vulnerable communities.",
       image: "/placeholder.svg",
       additionalImages: ["/placeholder.svg", "/placeholder.svg"],
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Example YouTube embed URL
+      // videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Example YouTube embed URL
+      videoFile: "/videos/health-sanitization.mp4", // Local video file in public/videos folder
     },
     {
       title: "Agricultural Support",
