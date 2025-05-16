@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8">
           <div>
             <div className="text-2xl font-bold mb-4 flex items-center">
-              <img src="/placeholder.svg" alt="Manavata Logo" className="h-8 w-8 mr-2" />
+              <img src="/media/logo.jpeg" alt="Manavata Logo" className="h-8 w-8 mr-2" />
               Manavata
             </div>
             <p className="text-gray-300 mb-4">
