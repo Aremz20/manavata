@@ -27,7 +27,7 @@ const Programs = () => {
     {
       title: "Health & Sanitization",
       description: "Implementing health clinics and sanitization projects to improve health outcomes and prevent disease in vulnerable communities.",
-      image: "/placeholder.svg",
+      image: "/media/1b5b042f-2c90-4522-a56d-e14a74134b33.jpeg",
       additionalImages: ["/media/4933074e-840b-4031-baee-0a6f0d6ca0c2.jpeg", "/media/1b5b042f-2c90-4522-a56d-e14a74134b33.jpeg"],
       videoFile: "/media/44fc0d85-a3a5-4c2c-b8fe-c8a27ecb8d96.mov",
     }
