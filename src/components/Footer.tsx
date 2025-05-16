@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8">
           <div>
             <div className="text-2xl font-bold mb-4 flex items-center">
-              <img src="/placeholder.svg" alt="Manarahta Logo" className="h-8 w-8 mr-2" />
-              MANARAHTA
+              <img src="/placeholder.svg" alt="Manavata Logo" className="h-8 w-8 mr-2" />
+              Manavata
             </div>
             <p className="text-gray-300 mb-4">
               Bringing hope to those who need it most through humanitarian aid, education, and community development.
@@ -47,7 +47,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <span className="mr-2">📧</span>
-                <span>info@manarahta.org</span>
+                <span>info@Manavata.org</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2">📞</span>
@@ -61,7 +61,7 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <div className="mb-4 sm:mb-0">
               <p className="text-gray-300 text-sm">
-                © {currentYear} Manarahta. All rights reserved.
+                © {currentYear} Manavata. All rights reserved.
               </p>
             </div>
             <div className="flex space-x-4">

@@ -5,11 +5,11 @@ const About = () => {
   return (
     <section className="section-padding bg-gray-50" id="about">
       <div className="container mx-auto">
-        <h2 className="section-title">About Manarahta</h2>
+        <h2 className="section-title">About Manavata</h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img 
-              src="./public/media/1cfd5f9c-0a32-4c27-8305-9473591bd624.jpeg" 
+              src="./../public/media/1cfd5f9c-0a32-4c27-8305-9473591bd624.jpeg" 
               alt="People working together" 
               className="rounded-lg shadow-md w-full h-auto object-cover"
               style={{ aspectRatio: "4/3" }}
@@ -17,7 +17,7 @@ const About = () => {
           </div>
           <div>
             <p className="text-gray-700 mb-6">
-              Founded in 2010, Manarahta has been at the forefront of humanitarian efforts in regions affected by conflict and natural disasters. Our organization began with a small group of dedicated volunteers and has grown into a global network of partners and supporters committed to making a difference.
+              Founded in 2010, Manavata has been at the forefront of humanitarian efforts in regions affected by conflict and natural disasters. Our organization began with a small group of dedicated volunteers and has grown into a global network of partners and supporters committed to making a difference.
             </p>
             <p className="text-gray-700 mb-6">
               We work closely with local communities to understand their unique needs and develop programs that address immediate concerns while building long-term resilience and self-sufficiency.

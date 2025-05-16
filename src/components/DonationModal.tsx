@@ -110,7 +110,7 @@ const DonationModal = ({ isOpen, onClose }: DonationModalProps) => {
               </div>
               <div>
                 <span className="font-medium">Account Name: </span>
-                Manarahta Succour Foundation
+                Manavata Succour Foundation
               </div>
               <div>
                 <span className="font-medium">Account Number: </span>

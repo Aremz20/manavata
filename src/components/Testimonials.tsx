@@ -2,19 +2,19 @@
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "The support from Manarahta has transformed our village. We now have clean water and our children can attend school regularly.",
+      quote: "The support from Manavata has transformed our village. We now have clean water and our children can attend school regularly.",
       name: "Sarah Ahmed",
       location: "Yemen",
       image: "/placeholder.svg"
     },
     {
-      quote: "When the floods destroyed our home, Manarahta was there with emergency supplies and helped us rebuild. We are forever grateful.",
+      quote: "When the floods destroyed our home, Manavata was there with emergency supplies and helped us rebuild. We are forever grateful.",
       name: "Abdul Rahman",
       location: "Pakistan",
       image: "/placeholder.svg"
     },
     {
-      quote: "Thanks to the agricultural training from Manarahta, our community now grows enough food to feed ourselves and generate income.",
+      quote: "Thanks to the agricultural training from Manavata, our community now grows enough food to feed ourselves and generate income.",
       name: "Maria Santos",
       location: "Honduras",
       image: "/placeholder.svg"
