@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
+import DonationModal from "./DonationModal";
 
 interface ProjectDetailsModalProps {
   isOpen: boolean;
@@ -17,6 +18,16 @@ interface ProjectDetailsModalProps {
 }
 
 const ProjectDetailsModal = ({ isOpen, onClose, project }: ProjectDetailsModalProps) => {
+  const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
+  
+  const openDonationModal = () => {
+    setIsDonationModalOpen(true);
+  };
+
+  const closeDonationModal = () => {
+    setIsDonationModalOpen(false);
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="sm:max-w-4xl max-h-[90vh] overflow-y-auto">
@@ -99,12 +110,18 @@ const ProjectDetailsModal = ({ isOpen, onClose, project }: ProjectDetailsModalPr
           )}
           
           <div className="flex justify-center">
-            <Button className="bg-brand-gold hover:bg-brand-gold/90 text-brand-blue font-semibold px-8">
+            <Button 
+              className="bg-brand-gold hover:bg-brand-gold/90 text-brand-blue font-semibold px-8"
+              onClick={openDonationModal}
+            >
               Support This Project
             </Button>
           </div>
         </div>
       </DialogContent>
+      
+      {/* Donation Modal */}
+      <DonationModal isOpen={isDonationModalOpen} onClose={closeDonationModal} />
     </Dialog>
   );
 };
