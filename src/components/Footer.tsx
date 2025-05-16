@@ -47,7 +47,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <span className="mr-2">📧</span>
-                <span>info@Manavata.org</span>
+                <span>Manavata.succor@gmail.com</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2">📞</span>
