@@ -1,868 +1,1013 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manavata - A Foundation for Succour</title>
-<script src="https://cdn.tailwindcss.com/3.4.16"></script>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#1f3b60',secondary:'#e6b012'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-body {
-font-family: 'Open Sans', sans-serif;
-}
-h1, h2, h3, h4, h5, h6 {
-font-family: 'Montserrat', sans-serif;
-}
-.hero-gradient {
-background: linear-gradient(90deg, rgba(31, 59, 96, 0.9) 0%, rgba(31, 59, 96, 0.7) 50%, rgba(31, 59, 96, 0.2) 100%);
-}
-.project-card:hover .project-overlay {
-opacity: 1;
-}
-.testimonial-card::before {
-content: '"';
-font-size: 4rem;
-position: absolute;
-top: -1rem;
-left: 1rem;
-color: rgba(230, 176, 18, 0.2);
-font-family: serif;
-}
-.custom-shadow {
-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manavata - A Foundation for Succour</title>
+  
+  <!-- External Resources -->
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1f3b60',
+            secondary: '#e6b012'
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '8px'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <style>
+    :where([class^="ri-"])::before { content: "\f3c2"; }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(90deg, rgba(31, 59, 96, 0.9) 0%, rgba(31, 59, 96, 0.7) 50%, rgba(31, 59, 96, 0.2) 100%);
+    }
+    
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      font-size: 4rem;
+      position: absolute;
+      top: -1rem;
+      left: 1rem;
+      color: rgba(230, 176, 18, 0.2);
+      font-family: serif;
+    }
+    
+    .custom-shadow {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+  </style>
 </head>
+
 <body class="bg-white">
-<!-- Header -->
-<header class="bg-white shadow-sm sticky top-0 z-50">
-<div class="container mx-auto px-4 flex justify-between items-center h-20">
-<div class="flex items-center">
-<div class="w-12 h-12 flex items-center justify-center mr-3">
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAgOTBjMjIuMDkxIDAgNDAtMTcuOTA5IDQwLTQwUzcyLjA5MSAxMCA1MCAxMCAxMCAyNy45MDkgMTAgNTBzMTcuOTA5IDQwIDQwIDQweiIgZmlsbD0iIzFmM2I2MCIvPjxwYXRoIGQ9Ik01MCA3NWMtNS41MjMgMC0xMC00LjQ3Ny0xMC0xMHM0LjQ3Ny0xMCAxMC0xMCAxMCA0LjQ3NyAxMCAxMC00LjQ3NyAxMC0xMCAxMHoiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTM1IDUwYy01LjUyMyAwLTEwLTQuNDc3LTEwLTEwczQuNDc3LTEwIDEwLTEwIDEwIDQuNDc3IDEwIDEwLTQuNDc3IDEwLTEwIDEweiIgZmlsbD0id2hpdGUiLz48cGF0aCBkPSJNNjUgNTBjLTUuNTIzIDAtMTAtNC40NzctMTAtMTBzNC40NzctMTAgMTAtMTAgMTAgNC40NzcgMTAgMTAtNC40NzcgMTAtMTAgMTB6IiBmaWxsPSJ3aGl0ZSIvPjxwYXRoIGQ9Ik0yNSA2NWMwIDUuNTIzIDQuNDc3IDEwIDEwIDEwczEwLTQuNDc3IDEwLTEwLTQuNDc3LTEwLTEwLTEwLTEwIDQuNDc3LTEwIDEweiIgZmlsbD0id2hpdGUiLz48cGF0aCBkPSJNNTUgNjVjMCA1LjUyMyA0LjQ3NyAxMCAxMCAxMHMxMC00LjQ3NyAxMC0xMC00LjQ3Ny0xMC0xMC0xMC0xMCA0LjQ3Ny0xMCAxMHoiIGZpbGw9IndoaXRlIi8+PC9zdmc+" alt="Manavata Logo" class="w-full h-full">
-</div>
-<div>
-<h1 class="text-2xl font-bold text-primary">MANAVATA</h1>
-<p class="text-xs text-gray-600">SUCCOUR FOUNDATION</p>
-</div>
-</div>
-<nav class="hidden md:flex items-center space-x-8">
-<a href="#" class="text-primary font-medium hover:text-secondary transition-colors">Home</a>
-<a href="#about" class="text-gray-700 font-medium hover:text-primary transition-colors">About Us</a>
-<a href="#projects" class="text-gray-700 font-medium hover:text-primary transition-colors">Our Projects</a>
-<a href="#gallery" class="text-gray-700 font-medium hover:text-primary transition-colors">Gallery</a>
-<a href="#involved" class="text-gray-700 font-medium hover:text-primary transition-colors">Get Involved</a>
-<a href="#contact" class="text-gray-700 font-medium hover:text-primary transition-colors">Contact</a>
-</nav>
-<div class="flex items-center space-x-4">
-<button class="donate-now-btn bg-secondary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Donate Now</button>
-<button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
-<i class="ri-menu-line ri-lg"></i>
-</button>
-</div>
-</div>
-</header>
-<!-- Hero Section -->
-<section class="relative w-full" style="height: 650px;">
-<div style="background-image: url('https://readdy.ai/api/search-image?query=A%20heartwarming%20scene%20of%20volunteers%20helping%20children%20and%20families%20in%20need%2C%20distributing%20aid%20packages%2C%20showing%20compassion%20and%20care.%20The%20image%20shows%20diverse%20people%20working%20together%20in%20a%20community%20setting%20with%20soft%20natural%20lighting%20and%20warm%20tones.%20The%20left%20side%20has%20a%20darker%20blue%20gradient%20that%20transitions%20to%20a%20lighter%20area%20on%20the%20right%20for%20text%20overlay&width=1600&height=800&seq=hero1&orientation=landscape');" class="absolute inset-0 bg-cover bg-center"></div>
-<div class="absolute inset-0 hero-gradient"></div>
-<div class="container mx-auto px-4 h-full flex items-center relative z-10">
-<div class="max-w-2xl text-white">
-<h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Bringing Hope to Those Who Need It Most</h1>
-<p class="text-xl md:text-2xl mb-8 font-light">At Manavata, we are committed to providing efficient, effective, and sustainable charitable support to abused children, orphans, widows, and those in dire need.</p>
-<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-<a href="#involved" class="bg-white text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-lg whitespace-nowrap">Join Us</a>
-<button class="donate-now-btn bg-secondary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-lg whitespace-nowrap">Donate Now</button>
-</div>
-</div>
-</div>
-</section>
-<!-- Mission Statement -->
-<section class="py-16 bg-gray-50">
-<div class="container mx-auto px-4">
-<div class="max-w-4xl mx-auto text-center">
-<h2 class="text-3xl font-bold text-primary mb-6">Our Mission</h2>
-<p class="text-lg text-gray-700 leading-relaxed mb-6">
-At Manavata, our mission is to be a lifeline to the forgotten and the vulnerable. We are committed to reaching abused children, orphans, widows, and others in dire need — providing compassionate care, practical support, and a path to healing.
-</p>
-<p class="text-lg text-gray-700 leading-relaxed">
-Through love, service, and unwavering commitment, we aim to restore dignity, ignite hope, and empower lives. Every act of kindness brings us one step closer to a more just and humane world.
-</p>
-</div>
-</div>
-</section>
-<!-- About Us Section -->
-<section id="about" class="py-20 bg-white">
-<div class="container mx-auto px-4">
-<div class="flex flex-col md:flex-row items-center">
-<div class="md:w-1/2 mb-10 md:mb-0 md:pr-12">
-<img src="https://readdy.ai/api/search-image?query=A%20group%20of%20Nigerian%20NGO%20volunteers%20and%20staff%20in%20traditional%20and%20modern%20African%20attire%20working%20together%2C%20showing%20teamwork%20and%20compassion.%20The%20image%20depicts%20people%20collaborating%20on%20humanitarian%20projects%20in%20a%20Nigerian%20community%20center.%20The%20scene%20shows%20both%20planning%20activities%20and%20direct%20community%20engagement%20with%20warm%20natural%20lighting%20highlighting%20African%20architectural%20elements&width=600&height=500&seq=about1&orientation=landscape" alt="About Manavata" class="rounded-lg shadow-xl w-full object-cover object-top">
-</div>
-<div class="md:w-1/2">
-<h2 class="text-3xl font-bold text-primary mb-6">About Manavata</h2>
-<p class="text-gray-700 mb-6 leading-relaxed">
-Manavata, meaning "A Foundation for Succour," was established with a clear vision: to create an efficient, effective, and sustainable charitable organization that makes a real difference in people's lives.
-</p>
-<p class="text-gray-700 mb-8 leading-relaxed">
-Our foundation is built on the principles of integrity, professionalism, teamwork, empathy, quality service, and inclusivity. We believe that by working together with compassion and dedication, we can transform lives and communities.
-</p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-<div class="bg-gray-50 p-6 rounded-lg custom-shadow">
-<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
-<i class="ri-eye-line ri-xl text-primary"></i>
-</div>
-<h3 class="text-xl font-semibold text-primary mb-2">Our Vision</h3>
-<p class="text-gray-700">To have an efficient, effective, and sustainable charitable course.</p>
-</div>
-<div class="bg-gray-50 p-6 rounded-lg custom-shadow">
-<div class="w-12 h-12 flex items-center justify-center bg-secondary bg-opacity-10 rounded-full mb-4">
-<i class="ri-heart-line ri-xl text-secondary"></i>
-</div>
-<h3 class="text-xl font-semibold text-primary mb-2">Our Values</h3>
-<p class="text-gray-700">Integrity, Professionalism, Teamwork, Empathy, Quality Service, Diversity and Inclusivity.</p>
-</div>
-</div>
-<a href="#projects" class="inline-block bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Explore Our Work</a>
-</div>
-</div>
-</div>
-</section>
-<!-- Our Projects Section -->
-<section id="projects" class="py-20 bg-gray-50">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold text-primary mb-4">Our Impact in Action</h2>
-<p class="text-lg text-gray-700 max-w-3xl mx-auto">Discover how Manavata is making a difference in communities through our various projects and initiatives.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Project Card 1 -->
-<div class="bg-white rounded-lg overflow-hidden custom-shadow group">
-<div class="relative h-64">
-<img src="https://readdy.ai/api/search-image?query=Nigerian%20volunteers%20in%20colorful%20African%20prints%20distributing%20food%20packages%20and%20essential%20supplies%20to%20local%20families%2C%20showing%20bags%20of%20rice%2C%20yams%2C%20and%20other%20Nigerian%20staples%20being%20organized%20for%20distribution.%20The%20scene%20depicts%20humanitarian%20aid%20work%20in%20a%20Nigerian%20community%20setting%20with%20traditional%20architecture%20visible&width=400&height=300&seq=project1&orientation=landscape" alt="Emergency Food Distribution" class="w-full h-full object-cover object-top">
-<div class="absolute inset-0 bg-primary bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center project-overlay">
-<a href="#" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">View Details</a>
-</div>
-</div>
-<div class="p-6">
-<div class="flex items-center mb-3">
-<span class="bg-secondary bg-opacity-10 text-secondary text-xs font-medium px-3 py-1 rounded-full">Emergency Relief</span>
-<span class="ml-auto text-sm text-gray-500">April 2025</span>
-</div>
-<h3 class="text-xl font-semibold text-primary mb-2">Emergency Food Distribution</h3>
-<div class="flex items-center text-gray-600 mb-4">
-<i class="ri-map-pin-line ri-sm mr-1"></i>
-<span class="text-sm">Faisal, Abuja</span>
-</div>
-<p class="text-gray-700 mb-4">Providing essential food supplies to 200 families affected by recent flooding, ensuring they have nutritional support during recovery.</p>
-<div class="flex items-center text-primary">
-<i class="ri-user-heart-line ri-sm mr-1"></i>
-<span class="text-sm font-medium">200 families supported</span>
-</div>
-</div>
-</div>
-<!-- Project Card 2 -->
-<div class="bg-white rounded-lg overflow-hidden custom-shadow group">
-<div class="relative h-64">
-<img src="https://readdy.ai/api/search-image?query=A%20Nigerian%20classroom%20setting%20where%20children%20in%20school%20uniforms%20are%20engaged%20in%20learning%20activities.%20Local%20teachers%20in%20traditional%20African%20attire%20helping%20students%20with%20educational%20materials.%20The%20scene%20shows%20a%20bright%2C%20hopeful%20atmosphere%20with%20African%20educational%20posters%20and%20artwork%20on%20walls&width=400&height=300&seq=project2&orientation=landscape" alt="Education Support Program" class="w-full h-full object-cover object-top">
-<div class="absolute inset-0 bg-primary bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center project-overlay">
-<a href="#" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">View Details</a>
-</div>
-</div>
-<div class="p-6">
-<div class="flex items-center mb-3">
-<span class="bg-primary bg-opacity-10 text-primary text-xs font-medium px-3 py-1 rounded-full">Education</span>
-<span class="ml-auto text-sm text-gray-500">Ongoing</span>
-</div>
-<h3 class="text-xl font-semibold text-primary mb-2">Education Support Program</h3>
-<div class="flex items-center text-gray-600 mb-4">
-<i class="ri-map-pin-line ri-sm mr-1"></i>
-<span class="text-sm">Karnataka, India</span>
-</div>
-<p class="text-gray-700 mb-4">Providing educational materials, tutoring, and scholarships to orphaned children, helping them build a brighter future through learning.</p>
-<div class="flex items-center text-primary">
-<i class="ri-user-heart-line ri-sm mr-1"></i>
-<span class="text-sm font-medium">75 children enrolled</span>
-</div>
-</div>
-</div>
-<!-- Project Card 3 -->
-<div class="bg-white rounded-lg overflow-hidden custom-shadow group">
-<div class="relative h-64">
-<img src="https://readdy.ai/api/search-image?query=Nigerian%20women%20in%20colorful%20ankara%20fabrics%20participating%20in%20a%20skills%20development%20workshop%2C%20learning%20traditional%20crafts%20and%20modern%20business%20skills.%20The%20scene%20shows%20women%20working%20together%20on%20African%20textiles%20and%20crafts%20in%20a%20supportive%20environment%20with%20traditional%20Nigerian%20decorative%20elements%20visible&width=400&height=300&seq=project3&orientation=landscape" alt="Women's Empowerment Initiative" class="w-full h-full object-cover object-top">
-<div class="absolute inset-0 bg-primary bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center project-overlay">
-<a href="#" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">View Details</a>
-</div>
-</div>
-<div class="p-6">
-<div class="flex items-center mb-3">
-<span class="bg-secondary bg-opacity-10 text-secondary text-xs font-medium px-3 py-1 rounded-full">Empowerment</span>
-<span class="ml-auto text-sm text-gray-500">March 2025</span>
-</div>
-<h3 class="text-xl font-semibold text-primary mb-2">Women's Empowerment Initiative</h3>
-<div class="flex items-center text-gray-600 mb-4">
-<i class="ri-map-pin-line ri-sm mr-1"></i>
-<span class="text-sm">Gujarat, India</span>
-</div>
-<p class="text-gray-700 mb-4">Training widows and vulnerable women in vocational skills, providing microloans, and supporting small business development.</p>
-<div class="flex items-center text-primary">
-<i class="ri-user-heart-line ri-sm mr-1"></i>
-<span class="text-sm font-medium">50 women empowered</span>
-</div>
-</div>
-</div>
-</div>
-<div class="text-center mt-12">
-<a href="#" class="inline-block bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">View All Projects</a>
-</div>
-</div>
-</section>
-<!-- Impact Statistics -->
-<section class="py-16 bg-primary text-white">
-<div class="container mx-auto px-4">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-<div>
-<div class="text-4xl font-bold mb-2">5,000+</div>
-<p class="text-white text-opacity-80">Lives Impacted</p>
-</div>
-<div>
-<div class="text-4xl font-bold mb-2">12</div>
-<p class="text-white text-opacity-80">Active Projects</p>
-</div>
-<div>
-<div class="text-4xl font-bold mb-2">8</div>
-<p class="text-white text-opacity-80">Regions Served</p>
-</div>
-<div>
-<div class="text-4xl font-bold mb-2">200+</div>
-<p class="text-white text-opacity-80">Volunteers</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Gallery Section -->
-<section id="gallery" class="py-20 bg-white">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold text-primary mb-4">Our Gallery</h2>
-<p class="text-lg text-gray-700 max-w-3xl mx-auto">Glimpses of our work in communities across India, showcasing the impact of your support.</p>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-<div class="relative overflow-hidden rounded-lg h-64 group">
-<img src="./Images/Image 1.jpg">
-<div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
-<i class="ri-zoom-in-line ri-lg text-primary"></i>
-</div>
-</div>
-</div>
-<div class="relative overflow-hidden rounded-lg h-64 group">
-<img src="./Images/Image 2.jpg">
-<div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
-<i class="ri-zoom-in-line ri-lg text-primary"></i>
-</div>
-</div>
-</div>
-<div class="relative overflow-hidden rounded-lg h-64 group">
-<img src="./Images/Image 3.jpg">
-<div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
-<i class="ri-zoom-in-line ri-lg text-primary"></i>
-</div>
-</div>
-</div>
-<div class="relative overflow-hidden rounded-lg h-64 group">
-<img src="./Images/Image 5.jpg">
-<div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
-<i class="ri-zoom-in-line ri-lg text-primary"></i>
-</div>
-</div>
-</div>
-<div class="relative overflow-hidden rounded-lg h-64 group">
-<img src="./Images/Image 6.jpg">
-<div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
-<i class="ri-zoom-in-line ri-lg text-primary"></i>
-</div>
-</div>
-</div>
-<div class="relative overflow-hidden rounded-lg h-64 group">
-<img src="./Images/image 8.jpg">
-<div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
-<i class="ri-zoom-in-line ri-lg text-primary"></i>
-</div>
-</div>
-</div>
-<div class="relative overflow-hidden rounded-lg h-64 group">
-<img src="./Images/Image 4.jpg">
-<div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
-<i class="ri-zoom-in-line ri-lg text-primary"></i>
-</div>
-</div>
-</div>
-<div class="relative overflow-hidden rounded-lg h-64 group">
-<img src="./Images/Image 7.jpg">
-<div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
-<i class="ri-zoom-in-line ri-lg text-primary"></i>
-</div>
-</div>
-</div>
-</div>
-<div class="text-center mt-12">
-<a href="#" class="inline-block bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">View Full Gallery</a>
-</div>
-</div>
-</section>
-<!-- Testimonials Section -->
-<section class="py-20 bg-gray-50">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold text-primary mb-4">Voices of Impact</h2>
-<p class="text-lg text-gray-700 max-w-3xl mx-auto">Hear from those whose lives have been transformed through our work.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Testimonial 1 -->
-<div class="bg-white p-8 rounded-lg custom-shadow relative testimonial-card">
-<div class="flex items-center mb-6">
-<div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-<img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20Nigerian%20woman%20in%20her%2040s%20with%20a%20gentle%2C%20dignified%20expression%2C%20wearing%20colorful%20traditional%20African%20head%20tie%20and%20clothing%2C%20neutral%20background%2C%20professional%20portrait%20style&width=100&height=100&seq=test1&orientation=squarish" alt="Amina Okafor" class="w-full h-full object-cover object-top">
-</div>
-<div>
-<h4 class="text-lg font-semibold text-primary">Priya Sharma</h4>
-<p class="text-gray-600 text-sm">Beneficiary, Women's Program</p>
-</div>
-</div>
-<p class="text-gray-700 italic mb-4">
-"After losing my husband, I didn't know how I would support my children. Manavata's skills training program gave me hope and a way forward. Today, I run my own small tailoring business and can provide for my family with dignity."
-</p>
-<div class="flex text-secondary">
-<i class="ri-star-fill ri-sm"></i>
-<i class="ri-star-fill ri-sm"></i>
-<i class="ri-star-fill ri-sm"></i>
-<i class="ri-star-fill ri-sm"></i>
-<i class="ri-star-fill ri-sm"></i>
-</div>
-</div>
-<!-- Testimonial 2 -->
-<div class="bg-white p-8 rounded-lg custom-shadow relative testimonial-card">
-<div class="flex items-center mb-6">
-<div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-<img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20Nigerian%20teenage%20boy%20around%2016%20years%20old%20with%20a%20bright%2C%20hopeful%20expression%2C%20wearing%20a%20modern%20African-inspired%20outfit%2C%20neutral%20background%2C%20professional%20portrait%20style&width=100&height=100&seq=test2&orientation=squarish" alt="Oluwaseun Adebayo" class="w-full h-full object-cover object-top">
-</div>
-<div>
-<h4 class="text-lg font-semibold text-primary">Rahul Patel</h4>
-<p class="text-gray-600 text-sm">Education Program Recipient</p>
-</div>
-</div>
-<p class="text-gray-700 italic mb-4">
-"The scholarship from Manavata changed my life. As an orphan, I never thought I would be able to continue my education. Now I'm studying engineering and have dreams for my future. I want to give back to my community just as they have given to me."
-</p>
-<div class="flex text-secondary">
-<i class="ri-star-fill ri-sm"></i>
-<i class="ri-star-fill ri-sm"></i>
-<i class="ri-star-fill ri-sm"></i>
-<i class="ri-star-fill ri-sm"></i>
-<i class="ri-star-fill ri-sm"></i>
-</div>
-</div>
-<!-- Testimonial 3 -->
-<div class="bg-white p-8 rounded-lg custom-shadow relative testimonial-card">
-<div class="flex items-center mb-6">
-<div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-<img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20Nigerian%20man%20in%20his%2050s%20with%20a%20thoughtful%2C%20experienced%20expression%2C%20wearing%20traditional%20Nigerian%20agbada%20or%20business%20attire%2C%20neutral%20background%2C%20professional%20portrait%20style&width=100&height=100&seq=test3&orientation=squarish" alt="Dr. Chidi Okonkwo" class="w-full h-full object-cover object-top">
-</div>
-<div>
-<h4 class="text-lg font-semibold text-primary">Vikram Mehta</h4>
-<p class="text-gray-600 text-sm">Corporate Partner</p>
-</div>
-</div>
-<p class="text-gray-700 italic mb-4">
-"Our company has partnered with Manavata for three years, and we've been impressed by their professionalism, transparency, and genuine impact. They ensure every rupee donated creates maximum benefit for those in need. It's a partnership we're proud of."
-</p>
-<div class="flex text-secondary">
-<i class="ri-star-fill ri-sm"></i>
-<i class="ri-star-fill ri-sm"></i>
-<i class="ri-star-fill ri-sm"></i>
-<i class="ri-star-fill ri-sm"></i>
-<i class="ri-star-fill ri-sm"></i>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Get Involved Section -->
-<section id="involved" class="py-20 bg-white">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold text-primary mb-4">Get Involved</h2>
-<p class="text-lg text-gray-700 max-w-3xl mx-auto">Join us in our mission to bring hope and healing to those who need it most. There are many ways you can make a difference.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Volunteer Card -->
-<div class="bg-gray-50 rounded-lg overflow-hidden custom-shadow">
-<div class="h-48 bg-primary">
-<img src="https://readdy.ai/api/search-image?query=Diverse%20group%20of%20volunteers%20working%20together%20on%20a%20community%20project%2C%20showing%20teamwork%20and%20engagement.%20The%20image%20depicts%20people%20collaborating%20with%20a%20sense%20of%20purpose%20and%20joy%20in%20service&width=400&height=200&seq=volunteer&orientation=landscape" alt="Volunteer" class="w-full h-full object-cover object-top">
-</div>
-<div class="p-6">
-<h3 class="text-xl font-semibold text-primary mb-4">Volunteer With Us</h3>
-<p class="text-gray-700 mb-6">Share your time and skills to make a direct impact. We have opportunities for both in-person and remote volunteering across various projects.</p>
-<ul class="text-gray-700 mb-6 space-y-2">
-<li class="flex items-start">
-<i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
-<span>Field volunteering in communities</span>
-</li>
-<li class="flex items-start">
-<i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
-<span>Skills-based support (teaching, healthcare)</span>
-</li>
-<li class="flex items-start">
-<i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
-<span>Administrative and event support</span>
-</li>
-</ul>
-<a href="https://readdy.ai/home/a13a8dc2-b9cf-4dcb-ab81-fc3d2b59a85f/3b0ef856-df2a-4188-9ee6-025992081659" data-readdy="true" class="inline-block bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Become a Volunteer</a>
-</div>
-</div>
-<!-- Donate Card -->
-<div id="donate" class="bg-gray-50 rounded-lg overflow-hidden custom-shadow">
-<div class="h-48 bg-secondary">
-<img src="https://readdy.ai/api/search-image?query=Symbolic%20image%20representing%20charitable%20giving%20in%20Nigerian%20context%2C%20showing%20hands%20with%20African%20jewelry%20and%20traditional%20fabric%20sleeves%20exchanging%20or%20offering%20support.%20The%20image%20conveys%20the%20concept%20of%20donation%20with%20Nigerian%20cultural%20elements%20in%20a%20tasteful%2C%20abstract%20way&width=400&height=200&seq=donate&orientation=landscape" alt="Donate" class="w-full h-full object-cover object-top">
-</div>
-<div class="p-6">
-<h3 class="text-xl font-semibold text-primary mb-4">Make a Donation</h3>
-<p class="text-gray-700 mb-6">Your financial support enables us to continue and expand our work. Every contribution, regardless of size, makes a meaningful difference.</p>
-<ul class="text-gray-700 mb-6 space-y-2">
-<li class="flex items-start">
-<i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
-<span>One-time donations</span>
-</li>
-<li class="flex items-start">
-<i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
-<span>Monthly giving programs</span>
-</li>
-<li class="flex items-start">
-<i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
-<span>Project-specific funding</span>
-</li>
-</ul>
-<a href="#" id="donateButton" class="inline-block bg-secondary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Donate Now</a>
-<div id="donateModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
-<div class="bg-white rounded-lg max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
-<div class="p-6 md:p-8">
-<div class="flex justify-between items-center mb-6">
-<h3 class="text-2xl font-bold text-primary">Make a Donation</h3>
-<button id="closeModal" class="text-gray-500 hover:text-gray-700">
-<i class="ri-close-line ri-lg"></i>
-</button>
-</div>
-<p class="text-gray-700 mb-6">Your donation helps us provide essential support to children, widows, and vulnerable individuals across India. Every contribution makes a difference.</p>
-<form id="donationForm" class="space-y-6">
-<div>
-<label class="block text-gray-700 font-medium mb-4">Select Amount</label>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
-<button type="button" class="amount-btn px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 hover:border-secondary hover:text-secondary font-medium" data-amount="10000">₦10,000</button>
-<button type="button" class="amount-btn px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 hover:border-secondary hover:text-secondary font-medium" data-amount="25000">₦25,000</button>
-<button type="button" class="amount-btn px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 hover:border-secondary hover:text-secondary font-medium" data-amount="50000">₦50,000</button>
-<button type="button" class="amount-btn px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 hover:border-secondary hover:text-secondary font-medium" data-amount="100000">₦100,000</button>
-</div>
-<div class="relative">
-<span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">₦</span>
-<input type="number" id="customAmount" class="w-full pl-8 pr-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 focus:outline-none focus:border-secondary" placeholder="Enter custom amount">
-</div>
-</div>
-<div>
-<label class="block text-gray-700 font-medium mb-3">Donation Frequency</label>
-<div class="flex gap-4">
-<button type="button" class="frequency-btn flex-1 px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 hover:border-secondary hover:text-secondary font-medium active" data-frequency="onetime">One-time</button>
-<button type="button" class="frequency-btn flex-1 px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 hover:border-secondary hover:text-secondary font-medium" data-frequency="monthly">Monthly</button>
-</div>
-</div>
-<div>
-<label class="block text-gray-700 font-medium mb-3">Bank Transfer Details</label>
-<div class="bg-gray-50 p-4 rounded-lg space-y-3">
-<div>
-<p class="text-sm text-gray-600 mb-1">Bank Name</p>
-<p class="font-medium text-gray-800">First Bank of Nigeria</p>
-</div>
-<div>
-<p class="text-sm text-gray-600 mb-1">Account Name</p>
-<p class="font-medium text-gray-800">Manavata Succour Foundation</p>
-</div>
-<div>
-<p class="text-sm text-gray-600 mb-1">Account Number</p>
-<p class="font-medium text-gray-800">0123456789</p>
-</div>
-<div>
-<p class="text-sm text-gray-600 mb-1">Sort Code</p>
-<p class="font-medium text-gray-800">012345</p>
-</div>
-<div class="pt-2">
-<p class="text-sm text-gray-600">Please use your name as payment reference</p>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<div>
-<label for="fullName" class="block text-gray-700 font-medium mb-2">Full Name</label>
-<input type="text" id="fullName" class="w-full px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 focus:outline-none focus:border-secondary" required>
-</div>
-<div>
-<label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-<input type="email" id="email" class="w-full px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 focus:outline-none focus:border-secondary" required>
-</div>
-<div>
-<label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
-<input type="tel" id="phone" class="w-full px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 focus:outline-none focus:border-secondary" required>
-</div>
-<div>
-<label for="panCard" class="block text-gray-700 font-medium mb-2">PAN Card (Optional)</label>
-<input type="text" id="panCard" class="w-full px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 focus:outline-none focus:border-secondary">
-</div>
-</div>
-<div class="pt-4">
-<button type="submit" class="w-full bg-secondary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Complete Donation</button>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Partner Card -->
-<div class="bg-gray-50 rounded-lg overflow-hidden custom-shadow">
-<div class="h-48 bg-primary">
-<img src="https://readdy.ai/api/search-image?query=Professional%20business%20meeting%20between%20Nigerian%20NGO%20representatives%20and%20corporate%20partners%20in%20a%20modern%20African%20office%20setting.%20The%20image%20shows%20collaboration%20with%20people%20wearing%20both%20traditional%20Nigerian%20attire%20and%20business%20suits%2C%20discussing%20partnerships%20in%20a%20contemporary%20African%20architectural%20space&width=400&height=200&seq=partner&orientation=landscape" alt="Partner" class="w-full h-full object-cover object-top">
-</div>
-<div class="p-6">
-<h3 class="text-xl font-semibold text-primary mb-4">Partner With Us</h3>
-<p class="text-gray-700 mb-6">We collaborate with businesses, schools, and other organizations to create meaningful partnerships that amplify our collective impact.</p>
-<ul class="text-gray-700 mb-6 space-y-2">
-<li class="flex items-start">
-<i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
-<span>Corporate social responsibility programs</span>
-</li>
-<li class="flex items-start">
-<i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
-<span>Cause-related marketing</span>
-</li>
-<li class="flex items-start">
-<i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
-<span>In-kind donations and services</span>
-</li>
-</ul>
-<a href="https://readdy.ai/home/a13a8dc2-b9cf-4dcb-ab81-fc3d2b59a85f/b9fc9229-69d1-4f08-ac00-247753a4f62e" data-readdy="true" class="inline-block bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Become a Partner</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Newsletter Section -->
-<section class="py-16 bg-gray-50">
-<div class="container mx-auto px-4">
-<div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-lg custom-shadow">
-<div class="text-center mb-8">
-<h2 class="text-2xl font-bold text-primary mb-3">Stay Updated</h2>
-<p class="text-gray-700">Subscribe to our newsletter to receive updates on our projects, impact stories, and ways to get involved.</p>
-</div>
-<form class="flex flex-col md:flex-row gap-4">
-<input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-700">
-<button type="submit" class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Subscribe</button>
-</form>
-</div>
-</div>
-</section>
-<!-- Contact Section -->
-<section id="contact" class="py-20 bg-white">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold text-primary mb-4">Contact Us</h2>
-<p class="text-lg text-gray-700 max-w-3xl mx-auto">Have questions or want to learn more about our work? We'd love to hear from you.</p>
-</div>
-<div class="flex flex-col lg:flex-row gap-12">
-<div class="lg:w-1/2">
-<form class="space-y-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div>
-<label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
-<input type="text" id="name" class="w-full px-4 py-3 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-700">
-</div>
-<div>
-<label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-<input type="email" id="email" class="w-full px-4 py-3 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-700">
-</div>
-</div>
-<div>
-<label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-<input type="text" id="subject" class="w-full px-4 py-3 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-700">
-</div>
-<div>
-<label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
-<textarea id="message" rows="5" class="w-full px-4 py-3 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-700"></textarea>
-</div>
-<button type="submit" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Send Message</button>
-</form>
-</div>
-<div class="lg:w-1/2">
-<div class="bg-gray-50 p-8 rounded-lg custom-shadow h-full">
-<h3 class="text-xl font-semibold text-primary mb-6">Get in Touch</h3>
-<div class="space-y-6">
-<div class="flex items-start">
-<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 shrink-0">
-<i class="ri-map-pin-line ri-lg text-primary"></i>
-</div>
-<div>
-<h4 class="text-lg font-medium text-gray-900 mb-1">Our Location</h4>
-<p class="text-gray-700">Jabi, Abuja, Nigeria</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 shrink-0">
-<i class="ri-mail-line ri-lg text-primary"></i>
-</div>
-<div>
-<h4 class="text-lg font-medium text-gray-900 mb-1">Email Us</h4>
-<p class="text-gray-700">info@manavata.org</p>
-<p class="text-gray-700">support@manavata.org</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 shrink-0">
-<i class="ri-phone-line ri-lg text-primary"></i>
-</div>
-<div>
-<h4 class="text-lg font-medium text-gray-900 mb-1">Call Us</h4>
-<p class="text-gray-700">+91 98765 43210</p>
-<p class="text-gray-700">+91 87654 32109</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 shrink-0">
-<i class="ri-time-line ri-lg text-primary"></i>
-</div>
-<div>
-<h4 class="text-lg font-medium text-gray-900 mb-1">Office Hours</h4>
-<p class="text-gray-700">Monday - Friday: 9:00 AM - 5:00 PM</p>
-<p class="text-gray-700">Saturday: 9:00 AM - 1:00 PM</p>
-</div>
-</div>
-</div>
-<div class="mt-8">
-<h4 class="text-lg font-medium text-gray-900 mb-4">Follow Us</h4>
-<div class="flex space-x-4">
-<a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-opacity-90 transition-colors">
-<i class="ri-facebook-fill ri-lg"></i>
-</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-opacity-90 transition-colors">
-<i class="ri-twitter-fill ri-lg"></i>
-</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-opacity-90 transition-colors">
-<i class="ri-instagram-fill ri-lg"></i>
-</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-opacity-90 transition-colors">
-<i class="ri-linkedin-fill ri-lg"></i>
-</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-opacity-90 transition-colors">
-<i class="ri-youtube-fill ri-lg"></i>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Footer -->
-<footer class="bg-primary text-white pt-16 pb-8">
-<div class="container mx-auto px-4">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-<div>
-<div class="flex items-center mb-6">
-<div class="w-12 h-12 flex items-center justify-center mr-3 bg-white rounded-full">
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAgOTBjMjIuMDkxIDAgNDAtMTcuOTA5IDQwLTQwUzcyLjA5MSAxMCA1MCAxMCAxMCAyNy45MDkgMTAgNTBzMTcuOTA5IDQwIDQwIDQweiIgZmlsbD0iIzFmM2I2MCIvPjxwYXRoIGQ9Ik01MCA3NWMtNS41MjMgMC0xMC00LjQ3Ny0xMC0xMHM0LjQ3Ny0xMCAxMC0xMCAxMCA0LjQ3NyAxMCAxMC00LjQ3NyAxMC0xMCAxMHoiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTM1IDUwYy01LjUyMyAwLTEwLTQuNDc3LTEwLTEwczQuNDc3LTEwIDEwLTEwIDEwIDQuNDc3IDEwIDEwLTQuNDc3IDEwLTEwIDEweiIgZmlsbD0id2hpdGUiLz48cGF0aCBkPSJNNjUgNTBjLTUuNTIzIDAtMTAtNC40NzctMTAtMTBzNC40NzctMTAgMTAtMTAgMTAgNC40NzcgMTAgMTAtNC40NzcgMTAtMTAgMTB6IiBmaWxsPSJ3aGl0ZSIvPjxwYXRoIGQ9Ik0yNSA2NWMwIDUuNTIzIDQuNDc3IDEwIDEwIDEwczEwLTQuNDc3IDEwLTEwLTQuNDc3LTEwLTEwLTEwLTEwIDQuNDc3LTEwIDEweiIgZmlsbD0id2hpdGUiLz48cGF0aCBkPSJNNTUgNjVjMCA1LjUyMyA0LjQ3NyAxMCAxMCAxMHMxMC00LjQ3NyAxMC0xMC00LjQ3Ny0xMC0xMC0xMC0xMCA0LjQ3Ny0xMCAxMHoiIGZpbGw9IndoaXRlIi8+PC9zdmc+" alt="Manavata Logo" class="w-8 h-8">
-</div>
-<div>
-<h3 class="text-xl font-bold">MANAVATA</h3>
-<p class="text-xs text-white text-opacity-80">SUCCOUR FOUNDATION</p>
-</div>
-</div>
-<p class="text-white text-opacity-80 mb-6">
-Bringing hope, healing, and opportunities to abused children, orphans, widows, and vulnerable individuals across India.
-</p>
-<div class="flex space-x-4">
-<a href="#" class="w-9 h-9 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors">
-<i class="ri-facebook-fill ri-lg text-white"></i>
-</a>
-<a href="#" class="w-9 h-9 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors">
-<i class="ri-twitter-fill ri-lg text-white"></i>
-</a>
-<a href="#" class="w-9 h-9 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors">
-<i class="ri-instagram-fill ri-lg text-white"></i>
-</a>
-<a href="#" class="w-9 h-9 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors">
-<i class="ri-linkedin-fill ri-lg text-white"></i>
-</a>
-</div>
-</div>
-<div>
-<h3 class="text-lg font-semibold mb-6">Quick Links</h3>
-<ul class="space-y-3">
-<li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Home</a></li>
-<li><a href="#about" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">About Us</a></li>
-<li><a href="#projects" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Our Projects</a></li>
-<li><a href="#gallery" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Gallery</a></li>
-<li><a href="#involved" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Get Involved</a></li>
-<li><a href="#contact" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Contact Us</a></li>
-</ul>
-</div>
-<div>
-<h3 class="text-lg font-semibold mb-6">Our Programs</h3>
-<ul class="space-y-3">
-<li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Child Welfare</a></li>
-<li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Education Support</a></li>
-<li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Women's Empowerment</a></li>
-<li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Healthcare Initiatives</a></li>
-<li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Emergency Relief</a></li>
-<li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Community Development</a></li>
-</ul>
-</div>
-<div>
-<h3 class="text-lg font-semibold mb-6">Contact Information</h3>
-<ul class="space-y-4">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
-<i class="ri-map-pin-line text-white"></i>
-</div>
-<span class="text-white text-opacity-80">123 Charity Lane, Bangalore, Karnataka 560001, India</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
-<i class="ri-mail-line text-white"></i>
-</div>
-<span class="text-white text-opacity-80">info@manavata.org</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
-<i class="ri-phone-line text-white"></i>
-</div>
-<span class="text-white text-opacity-80">+91 98765 43210</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="pt-8 border-t border-white border-opacity-20 text-center text-white text-opacity-80">
-<p class="mb-4">Registered as a non-profit organization under the Indian Trusts Act, 1882.</p>
-<p>© 2025 Manavata Succour Foundation. All rights reserved.</p>
-</div>
-</div>
-</footer>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-// Donation modal functionality
-const donateButtons = document.querySelectorAll('.donate-now-btn, #donateButton');
-const donateModal = document.getElementById('donateModal');
-const closeModal = document.getElementById('closeModal');
-const donationForm = document.getElementById('donationForm');
-donateButtons.forEach(button => {
-button.addEventListener('click', function(e) {
-e.preventDefault();
-donateModal.classList.remove('hidden');
-document.body.style.overflow = 'hidden';
-});
-});
-closeModal.addEventListener('click', function() {
-donateModal.classList.add('hidden');
-document.body.style.overflow = '';
-});
-donateModal.addEventListener('click', function(e) {
-if (e.target === donateModal) {
-donateModal.classList.add('hidden');
-document.body.style.overflow = '';
-}
-});
-// Amount buttons
-const amountButtons = document.querySelectorAll('.amount-btn');
-const customAmount = document.getElementById('customAmount');
-amountButtons.forEach(btn => {
-btn.addEventListener('click', function() {
-amountButtons.forEach(b => b.classList.remove('border-secondary', 'text-secondary'));
-this.classList.add('border-secondary', 'text-secondary');
-customAmount.value = '';
-});
-});
-customAmount.addEventListener('input', function() {
-amountButtons.forEach(btn => btn.classList.remove('border-secondary', 'text-secondary'));
-});
-// Frequency buttons
-const frequencyButtons = document.querySelectorAll('.frequency-btn');
-frequencyButtons.forEach(btn => {
-btn.addEventListener('click', function() {
-frequencyButtons.forEach(b => b.classList.remove('border-secondary', 'text-secondary'));
-this.classList.add('border-secondary', 'text-secondary');
-});
-});
-// Payment method buttons
-const paymentMethodButtons = document.querySelectorAll('.payment-method-btn');
-paymentMethodButtons.forEach(btn => {
-btn.addEventListener('click', function() {
-paymentMethodButtons.forEach(b => b.classList.remove('border-secondary', 'text-secondary'));
-this.classList.add('border-secondary', 'text-secondary');
-});
-});
-donationForm.addEventListener('submit', function(e) {
-e.preventDefault();
-const successMessage = document.createElement('div');
-successMessage.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
-successMessage.innerHTML = `
-<div class="bg-white rounded-lg p-8 max-w-md mx-4 text-center">
-<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-green-100 rounded-full">
-<i class="ri-check-line ri-2x text-green-500"></i>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-2">Thank You for Your Donation!</h3>
-<p class="text-gray-700 mb-6">Please complete your bank transfer using the provided details. We will process your donation once the payment is received.</p>
-<button class="bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors" onclick="this.parentElement.parentElement.remove(); document.body.style.overflow = '';">Close</button>
-</div>
-`;
-document.body.appendChild(successMessage);
-donateModal.classList.add('hidden');
-});
-// Mobile menu toggle
-const menuButton = document.querySelector('.md\\:hidden');
-const mobileNav = document.querySelector('.md\\:flex');
-menuButton.addEventListener('click', function() {
-if (mobileNav.classList.contains('hidden')) {
-mobileNav.classList.remove('hidden');
-mobileNav.classList.add('flex', 'flex-col', 'absolute', 'top-20', 'left-0', 'right-0', 'bg-white', 'shadow-md', 'p-4', 'space-y-4', 'z-50');
-} else {
-mobileNav.classList.add('hidden');
-mobileNav.classList.remove('flex', 'flex-col', 'absolute', 'top-20', 'left-0', 'right-0', 'bg-white', 'shadow-md', 'p-4', 'space-y-4', 'z-50');
-}
-});
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function(e) {
-e.preventDefault();
-const targetId = this.getAttribute('href');
-if (targetId === '#') return;
-const targetElement = document.querySelector(targetId);
-if (targetElement) {
-window.scrollTo({
-top: targetElement.offsetTop - 80,
-behavior: 'smooth'
-});
-}
-});
-});
-});
-</script>
+  <!-- Header Component -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 flex justify-between items-center h-20">
+      <div class="flex items-center">
+        <div class="w-12 h-12 flex items-center justify-center mr-3">
+          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAgOTBjMjIuMDkxIDAgNDAtMTcuOTA5IDQwLTQwUzcyLjA5MSAxMCA1MCAxMCAxMCAyNy45MDkgMTAgNTBzMTcuOTA5IDQwIDQwIDQweiIgZmlsbD0iIzFmM2I2MCIvPjxwYXRoIGQ9Ik01MCA3NWMtNS41MjMgMC0xMC00LjQ3Ny0xMC0xMHM0LjQ3Ny0xMCAxMC0xMCAxMCA0LjQ3NyAxMCAxMC00LjQ3NyAxMC0xMCAxMHoiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTM1IDUwYy01LjUyMyAwLTEwLTQuNDc3LTEwLTEwczQuNDc3LTEwIDEwLTEwIDEwIDQuNDc3IDEwIDEwLTQuNDc3IDEwLTEwIDEweiIgZmlsbD0id2hpdGUiLz48cGF0aCBkPSJNNjUgNTBjLTUuNTIzIDAtMTAtNC40NzctMTAtMTBzNC40NzctMTAgMTAtMTAgMTAgNC40NzcgMTAgMTAtNC40NzcgMTAtMTAgMTB6IiBmaWxsPSJ3aGl0ZSIvPjxwYXRoIGQ9Ik0yNSA2NWMwIDUuNTIzIDQuNDc3IDEwIDEwIDEwczEwLTQuNDc3IDEwLTEwLTQuNDc3LTEwLTEwLTEwLTEwIDQuNDc3LTEwIDEweiIgZmlsbD0id2hpdGUiLz48cGF0aCBkPSJNNTUgNjVjMCA1LjUyMyA0LjQ3NyAxMCAxMCAxMHMxMC00LjQ3NyAxMC0xMC00LjQ3Ny0xMC0xMC0xMC0xMCA0LjQ3Ny0xMCAxMHoiIGZpbGw9IndoaXRlIi8+PC9zdmc+" alt="Manavata Logo" class="w-full h-full">
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold text-primary">MANAVATA</h1>
+          <p class="text-xs text-gray-600">SUCCOUR FOUNDATION</p>
+        </div>
+      </div>
+      
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#" class="text-primary font-medium hover:text-secondary transition-colors">Home</a>
+        <a href="#about" class="text-gray-700 font-medium hover:text-primary transition-colors">About Us</a>
+        <a href="#projects" class="text-gray-700 font-medium hover:text-primary transition-colors">Our Projects</a>
+        <a href="#gallery" class="text-gray-700 font-medium hover:text-primary transition-colors">Gallery</a>
+        <a href="#involved" class="text-gray-700 font-medium hover:text-primary transition-colors">Get Involved</a>
+        <a href="#contact" class="text-gray-700 font-medium hover:text-primary transition-colors">Contact</a>
+      </nav>
+      
+      <div class="flex items-center space-x-4">
+        <button class="donate-now-btn bg-secondary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Donate Now</button>
+        <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
+          <i class="ri-menu-line ri-lg"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative w-full" style="height: 650px;">
+    <div style="background-image: url('https://readdy.ai/api/search-image?query=A%20heartwarming%20scene%20of%20volunteers%20helping%20children%20and%20families%20in%20need%2C%20distributing%20aid%20packages%2C%20showing%20compassion%20and%20care.%20The%20image%20shows%20diverse%20people%20working%20together%20in%20a%20community%20setting%20with%20soft%20natural%20lighting%20and%20warm%20tones.%20The%20left%20side%20has%20a%20darker%20blue%20gradient%20that%20transitions%20to%20a%20lighter%20area%20on%20the%20right%20for%20text%20overlay&width=1600&height=800&seq=hero1&orientation=landscape');" 
+          class="absolute inset-0 bg-cover bg-center"></div>
+    <div class="absolute inset-0 hero-gradient"></div>
+    
+    <div class="container mx-auto px-4 h-full flex items-center relative z-10">
+      <div class="max-w-2xl text-white">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Bringing Hope to Those Who Need It Most</h1>
+        <p class="text-xl md:text-2xl mb-8 font-light">At Manavata, we are committed to providing efficient, effective, and sustainable charitable support to abused children, orphans, widows, and those in dire need.</p>
+        
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <a href="#involved" class="bg-white text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-lg whitespace-nowrap">Join Us</a>
+          <button class="donate-now-btn bg-secondary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-lg whitespace-nowrap">Donate Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Statement Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-primary mb-6">Our Mission</h2>
+        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+          At Manavata, our mission is to be a lifeline to the forgotten and the vulnerable. We are committed to reaching abused children, orphans, widows, and others in dire need — providing compassionate care, practical support, and a path to healing.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed">
+          Through love, service, and unwavering commitment, we aim to restore dignity, ignite hope, and empower lives. Every act of kindness brings us one step closer to a more just and humane world.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-12">
+          <img src="https://readdy.ai/api/search-image?query=A%20group%20of%20Nigerian%20NGO%20volunteers%20and%20staff%20in%20traditional%20and%20modern%20African%20attire%20working%20together%2C%20showing%20teamwork%20and%20compassion.%20The%20image%20depicts%20people%20collaborating%20on%20humanitarian%20projects%20in%20a%20Nigerian%20community%20center.%20The%20scene%20shows%20both%20planning%20activities%20and%20direct%20community%20engagement%20with%20warm%20natural%20lighting%20highlighting%20African%20architectural%20elements&width=600&height=500&seq=about1&orientation=landscape" 
+               alt="About Manavata" class="rounded-lg shadow-xl w-full object-cover object-top">
+        </div>
+        
+        <div class="md:w-1/2">
+          <h2 class="text-3xl font-bold text-primary mb-6">About Manavata</h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            Manavata, meaning "A Foundation for Succour," was established with a clear vision: to create an efficient, effective, and sustainable charitable organization that makes a real difference in people's lives.
+          </p>
+          <p class="text-gray-700 mb-8 leading-relaxed">
+            Our foundation is built on the principles of integrity, professionalism, teamwork, empathy, quality service, and inclusivity. We believe that by working together with compassion and dedication, we can transform lives and communities.
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-gray-50 p-6 rounded-lg custom-shadow">
+              <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+                <i class="ri-eye-line ri-xl text-primary"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-primary mb-2">Our Vision</h3>
+              <p class="text-gray-700">To have an efficient, effective, and sustainable charitable course.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-lg custom-shadow">
+              <div class="w-12 h-12 flex items-center justify-center bg-secondary bg-opacity-10 rounded-full mb-4">
+                <i class="ri-heart-line ri-xl text-secondary"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-primary mb-2">Our Values</h3>
+              <p class="text-gray-700">Integrity, Professionalism, Teamwork, Empathy, Quality Service, Diversity and Inclusivity.</p>
+            </div>
+          </div>
+          
+          <a href="#projects" class="inline-block bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Explore Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-primary mb-4">Our Impact in Action</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">Discover how Manavata is making a difference in communities through our various projects and initiatives.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project Card 1 -->
+        <div class="bg-white rounded-lg overflow-hidden custom-shadow group">
+          <div class="relative h-64">
+            <img src="/public/images/d16acbe4-0a46-4623-8257-274e2b67653f.jpeg" alt="Emergency Food Distribution" class="w-full h-full object-cover object-top">
+            <div class="absolute inset-0 bg-primary bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center project-overlay">
+              <a href="#" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">View Details</a>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <span class="bg-secondary bg-opacity-10 text-secondary text-xs font-medium px-3 py-1 rounded-full">Emergency Relief</span>
+              <span class="ml-auto text-sm text-gray-500">April 2025</span>
+            </div>
+            <h3 class="text-xl font-semibold text-primary mb-2">Emergency Food Distribution</h3>
+            <div class="flex items-center text-gray-600 mb-4">
+              <i class="ri-map-pin-line ri-sm mr-1"></i>
+              <span class="text-sm">Faisal, Abuja</span>
+            </div>
+            <p class="text-gray-700 mb-4">Providing essential food supplies to 200 families affected by recent flooding, ensuring they have nutritional support during recovery.</p>
+            <div class="flex items-center text-primary">
+              <i class="ri-user-heart-line ri-sm mr-1"></i>
+              <span class="text-sm font-medium">200 families supported</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 2 -->
+        <div class="bg-white rounded-lg overflow-hidden custom-shadow group">
+          <div class="relative h-64">
+            <img src="./public/images/9fc04fb2-4254-4818-81c2-ff613895737d.jpeg" alt="Education Support Program" class="w-full h-full object-cover object-top">
+            <div class="absolute inset-0 bg-primary bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center project-overlay">
+              <a href="#" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">View Details</a>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <span class="bg-primary bg-opacity-10 text-primary text-xs font-medium px-3 py-1 rounded-full">Education</span>
+              <span class="ml-auto text-sm text-gray-500">Ongoing</span>
+            </div>
+            <h3 class="text-xl font-semibold text-primary mb-2">Education Support Program</h3>
+            <div class="flex items-center text-gray-600 mb-4">
+              <i class="ri-map-pin-line ri-sm mr-1"></i>
+              <span class="text-sm">Karnataka, India</span>
+            </div>
+            <p class="text-gray-700 mb-4">Providing educational materials, tutoring, and scholarships to orphaned children, helping them build a brighter future through learning.</p>
+            <div class="flex items-center text-primary">
+              <i class="ri-user-heart-line ri-sm mr-1"></i>
+              <span class="text-sm font-medium">75 children enrolled</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 3 -->
+        <div class="bg-white rounded-lg overflow-hidden custom-shadow group">
+          <div class="relative h-64">
+            <img src="./public/images/hospital1.jpeg">
+            <div class="absolute inset-0 bg-primary bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center project-overlay">
+              <a href="#" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">View Details</a>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <span class="bg-primary bg-opacity-10 text-primary text-xs font-medium px-3 py-1 rounded-full">Healthcare</span>
+              <span class="ml-auto text-sm text-gray-500">May 2025</span>
+            </div>
+            <h3 class="text-xl font-semibold text-primary mb-2">Hospital Support Program</h3>
+            <div class="flex items-center text-gray-600 mb-4">
+              <i class="ri-map-pin-line ri-sm mr-1"></i>
+              <span class="text-sm">Kaduna, Nigeria</span>
+            </div>
+            <p class="text-gray-700 mb-4">Upgrading medical equipment and supporting staff in a rural hospital, improving healthcare access for over 1,000 residents in underserved communities.</p>
+            <div class="flex items-center text-primary">
+              <i class="ri-user-heart-line ri-sm mr-1"></i>
+              <span class="text-sm font-medium">1,000+ patients reached</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 4 -->
+        <div class="bg-white rounded-lg overflow-hidden custom-shadow group">
+          <div class="relative h-64">
+            <img src="./public/images/42253ae4-9300-43de-8df9-2b40cb2fce75.jpeg" alt="Women's Empowerment Initiative" class="w-full h-full object-cover object-top">
+            <div class="absolute inset-0 bg-primary bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center project-overlay">
+              <a href="#" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">View Details</a>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <span class="bg-secondary bg-opacity-10 text-secondary text-xs font-medium px-3 py-1 rounded-full">Empowerment</span>
+              <span class="ml-auto text-sm text-gray-500">March 2025</span>
+            </div>
+            <h3 class="text-xl font-semibold text-primary mb-2">Women's Empowerment Initiative</h3>
+            <div class="flex items-center text-gray-600 mb-4">
+              <i class="ri-map-pin-line ri-sm mr-1"></i>
+              <span class="text-sm">Gujarat, India</span>
+            </div>
+            <p class="text-gray-700 mb-4">Training widows and vulnerable women in vocational skills, providing microloans, and supporting small business development.</p>
+            <div class="flex items-center text-primary">
+              <i class="ri-user-heart-line ri-sm mr-1"></i>
+              <span class="text-sm font-medium">50 women empowered</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="#" class="inline-block bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Statistics Section -->
+  <section class="py-16 bg-primary text-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-bold mb-2">5,000+</div>
+          <p class="text-white text-opacity-80">Lives Impacted</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">12</div>
+          <p class="text-white text-opacity-80">Active Projects</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">8</div>
+          <p class="text-white text-opacity-80">Regions Served</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">200+</div>
+          <p class="text-white text-opacity-80">Volunteers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-primary mb-4">Our Gallery</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">Glimpses of our work in communities across India, showcasing the impact of your support.</p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="relative overflow-hidden rounded-lg h-64 group">
+          <img src="./public/images/hospital1.jpeg">
+          <div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
+              <i class="ri-zoom-in-line ri-lg text-primary"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative overflow-hidden rounded-lg h-64 group">
+          <img src="./public/images/empowering1.jpeg">
+          <div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
+              <i class="ri-zoom-in-line ri-lg text-primary"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative overflow-hidden rounded-lg h-64 group">
+          <img src="./public/images/103c8f88-506c-4c97-aa95-6288ac08ad0e.jpeg">
+          <div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
+              <i class="ri-zoom-in-line ri-lg text-primary"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative overflow-hidden rounded-lg h-64 group">
+          <img src="./public/images/1cfd5f9c-0a32-4c27-8305-9473591bd624.jpeg">
+          <div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
+              <i class="ri-zoom-in-line ri-lg text-primary"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative overflow-hidden rounded-lg h-64 group">
+          <img src="./public/images/31dd079d-1e8e-4b7e-b0ed-da0e0a28cc89.jpeg">
+          <div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
+              <i class="ri-zoom-in-line ri-lg text-primary"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative overflow-hidden rounded-lg h-64 group">
+          <img src="./public/images/a5a957da-125e-47fe-b226-dde0cd57c233.jpeg">
+          <div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
+              <i class="ri-zoom-in-line ri-lg text-primary"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative overflow-hidden rounded-lg h-64 group">
+          <img src="./public/images/9fc04fb2-4254-4818-81c2-ff613895737d.jpeg">
+          <div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
+              <i class="ri-zoom-in-line ri-lg text-primary"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative overflow-hidden rounded-lg h-64 group">
+          <img src="./public/images/6fcc6c07-1a72-434d-a3e0-c71cd309b6fd.jpeg">
+          <div class="absolute inset-0 bg-primary bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-90 rounded-full">
+              <i class="ri-zoom-in-line ri-lg text-primary"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="#" class="inline-block bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">View Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-primary mb-4">Voices of Impact</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">Hear from those whose lives have been transformed through our work.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-8 rounded-lg custom-shadow relative testimonial-card">
+          <div class="flex items-center mb-6">
+            <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+              <img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20Nigerian%20woman%20in%20her%2040s%20with%20a%20gentle%2C%20dignified%20expression%2C%20wearing%20colorful%20traditional%20African%20head%20tie%20and%20clothing%2C%20neutral%20background%2C%20professional%20portrait%20style&width=100&height=100&seq=test1&orientation=squarish" alt="Amina Okafor" class="w-full h-full object-cover object-top">
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-primary">Priya Sharma</h4>
+              <p class="text-gray-600 text-sm">Beneficiary, Women's Program</p>
+            </div>
+          </div>
+          <p class="text-gray-700 italic mb-4">
+            "After losing my husband, I didn't know how I would support my children. Manavata's skills training program gave me hope and a way forward. Today, I run my own small tailoring business and can provide for my family with dignity."
+          </p>
+          <div class="flex text-secondary">
+            <i class="ri-star-fill ri-sm"></i>
+            <i class="ri-star-fill ri-sm"></i>
+            <i class="ri-star-fill ri-sm"></i>
+            <i class="ri-star-fill ri-sm"></i>
+            <i class="ri-star-fill ri-sm"></i>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-8 rounded-lg custom-shadow relative testimonial-card">
+          <div class="flex items-center mb-6">
+            <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+              <img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20Nigerian%20teenage%20boy%20around%2016%20years%20old%20with%20a%20bright%2C%20hopeful%20expression%2C%20wearing%20a%20modern%20African-inspired%20outfit%2C%20neutral%20background%2C%20professional%20portrait%20style&width=100&height=100&seq=test2&orientation=squarish" alt="Oluwaseun Adebayo" class="w-full h-full object-cover object-top">
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-primary">Rahul Patel</h4>
+              <p class="text-gray-600 text-sm">Education Program Recipient</p>
+            </div>
+          </div>
+          <p class="text-gray-700 italic mb-4">
+            "The scholarship from Manavata changed my life. As an orphan, I never thought I would be able to continue my education. Now I'm studying engineering and have dreams for my future. I want to give back to my community just as they have given to me."
+          </p>
+          <div class="flex text-secondary">
+            <i class="ri-star-fill ri-sm"></i>
+            <i class="ri-star-fill ri-sm"></i>
+            <i class="ri-star-fill ri-sm"></i>
+            <i class="ri-star-fill ri-sm"></i>
+            <i class="ri-star-fill ri-sm"></i>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-8 rounded-lg custom-shadow relative testimonial-card">
+          <div class="flex items-center mb-6">
+            <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+              <img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20Nigerian%20man%20in%20his%2050s%20with%20a%20thoughtful%2C%20experienced%20expression%2C%20wearing%20traditional%20Nigerian%20agbada%20or%20business%20attire%2C%20neutral%20background%2C%20professional%20portrait%20style&width=100&height=100&seq=test3&orientation=squarish" alt="Dr. Chidi Okonkwo" class="w-full h-full object-cover object-top">
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-primary">Vikram Mehta</h4>
+              <p class="text-gray-600 text-sm">Corporate Partner</p>
+            </div>
+          </div>
+          <p class="text-gray-700 italic mb-4">
+            "Our company has partnered with Manavata for three years, and we've been impressed by their professionalism, transparency, and genuine impact. They ensure every rupee donated creates maximum benefit for those in need. It's a partnership we're proud of."
+          </p>
+          <div class="flex text-secondary">
+            <i class="ri-star-fill ri-sm"></i>
+            <i class="ri-star-fill ri-sm"></i>
+            <i class="ri-star-fill ri-sm"></i>
+            <i class="ri-star-fill ri-sm"></i>
+            <i class="ri-star-fill ri-sm"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Involved Section -->
+  <section id="involved" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-primary mb-4">Get Involved</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">Join us in our mission to bring hope and healing to those who need it most. There are many ways you can make a difference.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Volunteer Card -->
+        <div class="bg-gray-50 rounded-lg overflow-hidden custom-shadow">
+          <div class="h-48 bg-primary">
+            <img src="https://readdy.ai/api/search-image?query=Diverse%20group%20of%20volunteers%20working%20together%20on%20a%20community%20project%2C%20showing%20teamwork%20and%20engagement.%20The%20image%20depicts%20people%20collaborating%20with%20a%20sense%20of%20purpose%20and%20joy%20in%20service&width=400&height=200&seq=volunteer&orientation=landscape" alt="Volunteer" class="w-full h-full object-cover object-top">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-primary mb-4">Volunteer With Us</h3>
+            <p class="text-gray-700 mb-6">Share your time and skills to make a direct impact. We have opportunities for both in-person and remote volunteering across various projects.</p>
+            <ul class="text-gray-700 mb-6 space-y-2">
+              <li class="flex items-start">
+                <i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
+                <span>Field volunteering in communities</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
+                <span>Skills-based support (teaching, healthcare)</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
+                <span>Administrative and event support</span>
+              </li>
+            </ul>
+            <a href="https://readdy.ai/home/a13a8dc2-b9cf-4dcb-ab81-fc3d2b59a85f/3b0ef856-df2a-4188-9ee6-025992081659" data-readdy="true" class="inline-block bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Become a Volunteer</a>
+          </div>
+        </div>
+        
+        <!-- Donate Card -->
+        <div id="donate" class="bg-gray-50 rounded-lg overflow-hidden custom-shadow">
+          <div class="h-48 bg-secondary">
+            <img src="https://readdy.ai/api/search-image?query=Symbolic%20image%20representing%20charitable%20giving%20in%20Nigerian%20context%2C%20showing%20hands%20with%20African%20jewelry%20and%20traditional%20fabric%20sleeves%20exchanging%20or%20offering%20support.%20The%20image%20conveys%20the%20concept%20of%20donation%20with%20Nigerian%20cultural%20elements%20in%20a%20tasteful%2C%20abstract%20way&width=400&height=200&seq=donate&orientation=landscape" alt="Donate" class="w-full h-full object-cover object-top">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-primary mb-4">Make a Donation</h3>
+            <p class="text-gray-700 mb-6">Your financial support enables us to continue and expand our work. Every contribution, regardless of size, makes a meaningful difference.</p>
+            <ul class="text-gray-700 mb-6 space-y-2">
+              <li class="flex items-start">
+                <i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
+                <span>One-time donations</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
+                <span>Monthly giving programs</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
+                <span>Project-specific funding</span>
+              </li>
+            </ul>
+            <a href="#" id="donateButton" class="inline-block bg-secondary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Donate Now</a>
+            
+            <!-- Donation Modal -->
+            <div id="donateModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+              <div class="bg-white rounded-lg max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+                <div class="p-6 md:p-8">
+                  <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-primary">Make a Donation</h3>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                      <i class="ri-close-line ri-lg"></i>
+                    </button>
+                  </div>
+                  
+                  <p class="text-gray-700 mb-6">Your donation helps us provide essential support to children, widows, and vulnerable individuals across India. Every contribution makes a difference.</p>
+                  
+                  <form id="donationForm" class="space-y-6">
+                    <div>
+                      <label class="block text-gray-700 font-medium mb-4">Select Amount</label>
+                      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
+                        <button type="button" class="amount-btn px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 hover:border-secondary hover:text-secondary font-medium" data-amount="10000">₦10,000</button>
+                        <button type="button" class="amount-btn px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 hover:border-secondary hover:text-secondary font-medium" data-amount="25000">₦25,000</button>
+                        <button type="button" class="amount-btn px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 hover:border-secondary hover:text-secondary font-medium" data-amount="50000">₦50,000</button>
+                        <button type="button" class="amount-btn px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 hover:border-secondary hover:text-secondary font-medium" data-amount="100000">₦100,000</button>
+                      </div>
+                      <div class="relative">
+                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">₦</span>
+                        <input type="number" id="customAmount" class="w-full pl-8 pr-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 focus:outline-none focus:border-secondary" placeholder="Enter custom amount">
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label class="block text-gray-700 font-medium mb-3">Donation Frequency</label>
+                      <div class="flex gap-4">
+                        <button type="button" class="frequency-btn flex-1 px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 hover:border-secondary hover:text-secondary font-medium active" data-frequency="onetime">One-time</button>
+                        <button type="button" class="frequency-btn flex-1 px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 hover:border-secondary hover:text-secondary font-medium" data-frequency="monthly">Monthly</button>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label class="block text-gray-700 font-medium mb-3">Bank Transfer Details</label>
+                      <div class="bg-gray-50 p-4 rounded-lg space-y-3">
+                        <div>
+                          <p class="text-sm text-gray-600 mb-1">Bank Name</p>
+                          <p class="font-medium text-gray-800">First Bank of Nigeria</p>
+                        </div>
+                        <div>
+                          <p class="text-sm text-gray-600 mb-1">Account Name</p>
+                          <p class="font-medium text-gray-800">Manavata Succour Foundation</p>
+                        </div>
+                        <div>
+                          <p class="text-sm text-gray-600 mb-1">Account Number</p>
+                          <p class="font-medium text-gray-800">0123456789</p>
+                        </div>
+                        <div>
+                          <p class="text-sm text-gray-600 mb-1">Sort Code</p>
+                          <p class="font-medium text-gray-800">012345</p>
+                        </div>
+                        <div class="pt-2">
+                          <p class="text-sm text-gray-600">Please use your name as payment reference</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label for="fullName" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                        <input type="text" id="fullName" class="w-full px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 focus:outline-none focus:border-secondary" required>
+                      </div>
+                      <div>
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 focus:outline-none focus:border-secondary" required>
+                      </div>
+                      <div>
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 focus:outline-none focus:border-secondary" required>
+                      </div>
+                      <div>
+                        <label for="panCard" class="block text-gray-700 font-medium mb-2">PAN Card (Optional)</label>
+                        <input type="text" id="panCard" class="w-full px-4 py-2 border-2 border-gray-200 rounded-button text-gray-700 focus:outline-none focus:border-secondary">
+                      </div>
+                    </div>
+                    
+                    <div class="pt-4">
+                      <button type="submit" class="w-full bg-secondary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Complete Donation</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Partner Card -->
+        <div class="bg-gray-50 rounded-lg overflow-hidden custom-shadow">
+          <div class="h-48 bg-primary">
+            <img src="https://readdy.ai/api/search-image?query=Professional%20business%20meeting%20between%20Nigerian%20NGO%20representatives%20and%20corporate%20partners%20in%20a%20modern%20African%20office%20setting.%20The%20image%20shows%20collaboration%20with%20people%20wearing%20both%20traditional%20Nigerian%20attire%20and%20business%20suits%2C%20discussing%20partnerships%20in%20a%20contemporary%20African%20architectural%20space&width=400&height=200&seq=partner&orientation=landscape" alt="Partner" class="w-full h-full object-cover object-top">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-primary mb-4">Partner With Us</h3>
+            <p class="text-gray-700 mb-6">We collaborate with businesses, schools, and other organizations to create meaningful partnerships that amplify our collective impact.</p>
+            <ul class="text-gray-700 mb-6 space-y-2">
+              <li class="flex items-start">
+                <i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
+                <span>Corporate social responsibility programs</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
+                <span>Cause-related marketing</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-check-line ri-sm text-secondary mt-1 mr-2"></i>
+                <span>In-kind donations and services</span>
+              </li>
+            </ul>
+            <a href="https://readdy.ai/home/a13a8dc2-b9cf-4dcb-ab81-fc3d2b59a85f/b9fc9229-69d1-4f08-ac00-247753a4f62e" data-readdy="true" class="inline-block bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Become a Partner</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-lg custom-shadow">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-primary mb-3">Stay Updated</h2>
+          <p class="text-gray-700">Subscribe to our newsletter to receive updates on our projects, impact stories, and ways to get involved.</p>
+        </div>
+        
+        <form class="flex flex-col md:flex-row gap-4">
+          <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-700">
+          <button type="submit" class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-primary mb-4">Contact Us</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">Have questions or want to learn more about our work? We'd love to hear from you.</p>
+      </div>
+      
+      <div class="flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-1/2">
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                <input type="text" id="name" class="w-full px-4 py-3 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-700">
+              </div>
+              <div>
+                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                <input type="email" id="email" class="w-full px-4 py-3 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-700">
+              </div>
+            </div>
+            
+            <div>
+              <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+              <input type="text" id="subject" class="w-full px-4 py-3 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-700">
+            </div>
+            
+            <div>
+              <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+              <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-700"></textarea>
+            </div>
+            
+            <button type="submit" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">Send Message</button>
+          </form>
+        </div>
+        
+        <div class="lg:w-1/2">
+          <div class="bg-gray-50 p-8 rounded-lg custom-shadow h-full">
+            <h3 class="text-xl font-semibold text-primary mb-6">Get in Touch</h3>
+            
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 shrink-0">
+                  <i class="ri-map-pin-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium text-gray-900 mb-1">Our Location</h4>
+                  <p class="text-gray-700">Jabi, Abuja, Nigeria</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 shrink-0">
+                  <i class="ri-mail-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium text-gray-900 mb-1">Email Us</h4>
+                  <p class="text-gray-700">info@manavata.org</p>
+                  <p class="text-gray-700">support@manavata.org</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 shrink-0">
+                  <i class="ri-phone-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium text-gray-900 mb-1">Call Us</h4>
+                  <p class="text-gray-700">+91 98765 43210</p>
+                  <p class="text-gray-700">+91 87654 32109</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 shrink-0">
+                  <i class="ri-time-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium text-gray-900 mb-1">Office Hours</h4>
+                  <p class="text-gray-700">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                  <p class="text-gray-700">Saturday: 9:00 AM - 1:00 PM</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8">
+              <h4 class="text-lg font-medium text-gray-900 mb-4">Follow Us</h4>
+              <div class="flex space-x-4">
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-opacity-90 transition-colors">
+                  <i class="ri-facebook-fill ri-lg"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-opacity-90 transition-colors">
+                  <i class="ri-twitter-fill ri-lg"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-opacity-90 transition-colors">
+                  <i class="ri-instagram-fill ri-lg"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-opacity-90 transition-colors">
+                  <i class="ri-linkedin-fill ri-lg"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-opacity-90 transition-colors">
+                  <i class="ri-youtube-fill ri-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 flex items-center justify-center mr-3 bg-white rounded-full">
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAgOTBjMjIuMDkxIDAgNDAtMTcuOTA5IDQwLTQwUzcyLjA5MSAxMCA1MCAxMCAxMCAyNy45MDkgMTAgNTBzMTcuOTA5IDQwIDQwIDQweiIgZmlsbD0iIzFmM2I2MCIvPjxwYXRoIGQ9Ik01MCA3NWMtNS41MjMgMC0xMC00LjQ3Ny0xMC0xMHM0LjQ3Ny0xMCAxMC0xMCAxMCA0LjQ3NyAxMCAxMC00LjQ3NyAxMC0xMCAxMHoiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTM1IDUwYy01LjUyMyAwLTEwLTQuNDc3LTEwLTEwczQuNDc3LTEwIDEwLTEwIDEwIDQuNDc3IDEwIDEwLTQuNDc3IDEwLTEwIDEweiIgZmlsbD0id2hpdGUiLz48cGF0aCBkPSJNNjUgNTBjLTUuNTIzIDAtMTAtNC40NzctMTAtMTBzNC40NzctMTAgMTAtMTAgMTAgNC40NzcgMTAgMTAtNC40NzcgMTAtMTAgMTB6IiBmaWxsPSJ3aGl0ZSIvPjxwYXRoIGQ9Ik0yNSA2NWMwIDUuNTIzIDQuNDc3IDEwIDEwIDEwczEwLTQuNDc3IDEwLTEwLTQuNDc3LTEwLTEwLTEwLTEwIDQuNDc3LTEwIDEweiIgZmlsbD0id2hpdGUiLz48cGF0aCBkPSJNNTUgNjVjMCA1LjUyMyA0LjQ3NyAxMCAxMCAxMHMxMC00LjQ3NyAxMC0xMC00LjQ3Ny0xMC0xMC0xMC0xMCA0LjQ3Ny0xMCAxMHoiIGZpbGw9IndoaXRlIi8+PC9zdmc+" alt="Manavata Logo" class="w-8 h-8">
+            </div>
+            <div>
+              <h3 class="text-xl font-bold">MANAVATA</h3>
+              <p class="text-xs text-white text-opacity-80">SUCCOUR FOUNDATION</p>
+            </div>
+          </div>
+          
+          <p class="text-white text-opacity-80 mb-6">
+            Bringing hope, healing, and opportunities to abused children, orphans, widows, and vulnerable individuals across India.
+          </p>
+          
+          <div class="flex space-x-4">
+            <a href="#" class="w-9 h-9 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors">
+              <i class="ri-facebook-fill ri-lg text-white"></i>
+            </a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors">
+              <i class="ri-twitter-fill ri-lg text-white"></i>
+            </a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors">
+              <i class="ri-instagram-fill ri-lg text-white"></i>
+            </a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors">
+              <i class="ri-linkedin-fill ri-lg text-white"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Home</a></li>
+            <li><a href="#about" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">About Us</a></li>
+            <li><a href="#projects" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Our Projects</a></li>
+            <li><a href="#gallery" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Gallery</a></li>
+            <li><a href="#involved" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Get Involved</a></li>
+            <li><a href="#contact" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-6">Our Programs</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Child Welfare</a></li>
+            <li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Education Support</a></li>
+            <li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Women's Empowerment</a></li>
+            <li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Healthcare Initiatives</a></li>
+            <li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Emergency Relief</a></li>
+            <li><a href="#" class="text-white text-opacity-80 hover:text-opacity-100 transition-colors">Community Development</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-6">Contact Information</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                <i class="ri-map-pin-line text-white"></i>
+              </div>
+              <span class="text-white text-opacity-80">123 Charity Lane, Bangalore, Karnataka 560001, India</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                <i class="ri-mail-line text-white"></i>
+              </div>
+              <span class="text-white text-opacity-80">info@manavata.org</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                <i class="ri-phone-line text-white"></i>
+              </div>
+              <span class="text-white text-opacity-80">+91 98765 43210</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="pt-8 border-t border-white border-opacity-20 text-center text-white text-opacity-80">
+        <p class="mb-4">Registered as a non-profit organization under the Indian Trusts Act, 1882.</p>
+        <p>© 2025 Manavata Succour Foundation. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Donation modal functionality
+      const donateButtons = document.querySelectorAll('.donate-now-btn, #donateButton');
+      const donateModal = document.getElementById('donateModal');
+      const closeModal = document.getElementById('closeModal');
+      const donationForm = document.getElementById('donationForm');
+      
+      donateButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          donateModal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      
+      closeModal.addEventListener('click', function() {
+        donateModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+      
+      donateModal.addEventListener('click', function(e) {
+        if (e.target === donateModal) {
+          donateModal.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      });
+      
+      // Amount buttons
+      const amountButtons = document.querySelectorAll('.amount-btn');
+      const customAmount = document.getElementById('customAmount');
+      
+      amountButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          amountButtons.forEach(b => b.classList.remove('border-secondary', 'text-secondary'));
+          this.classList.add('border-secondary', 'text-secondary');
+          customAmount.value = '';
+        });
+      });
+      
+      customAmount.addEventListener('input', function() {
+        amountButtons.forEach(btn => btn.classList.remove('border-secondary', 'text-secondary'));
+      });
+      
+      // Frequency buttons
+      const frequencyButtons = document.querySelectorAll('.frequency-btn');
+      
+      frequencyButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          frequencyButtons.forEach(b => b.classList.remove('border-secondary', 'text-secondary'));
+          this.classList.add('border-secondary', 'text-secondary');
+        });
+      });
+      
+      // Payment method buttons
+      const paymentMethodButtons = document.querySelectorAll('.payment-method-btn');
+      
+      paymentMethodButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          paymentMethodButtons.forEach(b => b.classList.remove('border-secondary', 'text-secondary'));
+          this.classList.add('border-secondary', 'text-secondary');
+        });
+      });
+      
+      donationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const successMessage = document.createElement('div');
+        successMessage.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
+        successMessage.innerHTML = `
+          <div class="bg-white rounded-lg p-8 max-w-md mx-4 text-center">
+            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-green-100 rounded-full">
+              <i class="ri-check-line ri-2x text-green-500"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Thank You for Your Donation!</h3>
+            <p class="text-gray-700 mb-6">Please complete your bank transfer using the provided details. We will process your donation once the payment is received.</p>
+            <button class="bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors" onclick="this.parentElement.parentElement.remove(); document.body.style.overflow = '';">Close</button>
+          </div>
+        `;
+        
+        document.body.appendChild(successMessage);
+        donateModal.classList.add('hidden');
+      });
+      
+      // Mobile menu toggle
+      const menuButton = document.querySelector('.md\\:hidden');
+      const mobileNav = document.querySelector('.md\\:flex');
+      
+      menuButton.addEventListener('click', function() {
+        if (mobileNav.classList.contains('hidden')) {
+          mobileNav.classList.remove('hidden');
+          mobileNav.classList.add('flex', 'flex-col', 'absolute', 'top-20', 'left-0', 'right-0', 'bg-white', 'shadow-md', 'p-4', 'space-y-4', 'z-50');
+        } else {
+          mobileNav.classList.add('hidden');
+          mobileNav.classList.remove('flex', 'flex-col', 'absolute', 'top-20', 'left-0', 'right-0', 'bg-white', 'shadow-md', 'p-4', 'space-y-4', 'z-50');
+        }
+      });
+      
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
