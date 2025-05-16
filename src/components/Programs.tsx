@@ -25,8 +25,7 @@ const Programs = () => {
       description: "Implementing health clinics and sanitization projects to improve health outcomes and prevent disease in vulnerable communities.",
       image: "/placeholder.svg",
       additionalImages: ["/placeholder.svg", "/placeholder.svg"],
-      // videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Example YouTube embed URL
-      videoFile: "/videos/health-sanitization.mp4", // Local video file in public/videos folder
+      videoFile: "/media/44fc0d85-a3a5-4c2c-b8fe-c8a27ecb8d96.mov",
     },
     {
       title: "Agricultural Support",
