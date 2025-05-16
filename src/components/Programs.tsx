@@ -15,23 +15,21 @@ const Programs = () => {
       videoFile: "/media/4b124e3b-dff5-4421-9980-d35a8ccfe85b.mp4.mp4", 
     },
     {
-      title: "Education Programs",
-      description: "Supporting schools and educational initiatives to ensure children in underserved areas have access to quality education and learning materials.",
-      image: "/placeholder.svg",
-      additionalImages: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-    },
+      title: "Women Empowerment",
+      description: "Empowering women through skill development programs, vocational training, and microloans to promote financial independence and social inclusion.",
+      image: "/media/1cfd5f9c-0a32-4c27-8305-9473591bd624.jpeg",
+      additionalImages: [
+        "/media/a5a957da-125e-47fe-b226-dde0cd57c233.jpeg",
+        "/media/8e4bf7d2-f460-46f8-be7d-47e93f75823f.jpeg",
+        "/media/ae0ae72a-f824-4eed-947b-723de7df1b57.jpeg"
+      ],
+    }    
     {
       title: "Health & Sanitization",
       description: "Implementing health clinics and sanitization projects to improve health outcomes and prevent disease in vulnerable communities.",
       image: "/placeholder.svg",
-      additionalImages: ["/placeholder.svg", "/placeholder.svg"],
+      additionalImages: ["/media/4933074e-840b-4031-baee-0a6f0d6ca0c2.jpeg", "/media/1b5b042f-2c90-4522-a56d-e14a74134b33.jpeg"],
       videoFile: "/media/44fc0d85-a3a5-4c2c-b8fe-c8a27ecb8d96.mov",
-    },
-    {
-      title: "Agricultural Support",
-      description: "Training and equipping local farmers with sustainable farming techniques and resources to improve food security and income.",
-      image: "/placeholder.svg",
-      additionalImages: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
     }
   ];
 
