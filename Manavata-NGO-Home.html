@@ -72,6 +72,9 @@
     .custom-shadow {
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
+    .more-images {
+        transition: all 0.3s ease;
+      }
   </style>
 </head>
 
@@ -182,9 +185,8 @@
       </div>
     </div>
   </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="py-20 bg-gray-50">
+<!-- Projects Section -->
+<section id="projects" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
         <h2 class="text-3xl font-bold text-primary mb-4">Our Impact in Action</h2>
@@ -197,7 +199,9 @@
           <div class="relative h-64">
             <img src="/public/images/d16acbe4-0a46-4623-8257-274e2b67653f.jpeg" alt="Emergency Food Distribution" class="w-full h-full object-cover object-top">
             <div class="absolute inset-0 bg-primary bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center project-overlay">
-              <a href="#" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">View Details</a>
+              <button class="view-more-btn bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">
+                View More
+              </button>
             </div>
           </div>
           <div class="p-6">
@@ -216,6 +220,13 @@
               <span class="text-sm font-medium">200 families supported</span>
             </div>
           </div>
+          <!-- Hidden additional images -->
+          <div class="more-images hidden p-4 bg-gray-50 grid grid-cols-2 gap-2">
+            <img src="/public/images/food-extra1.jpg" class="w-full h-32 object-cover rounded">
+            <img src="/public/images/food-extra2.jpg" class="w-full h-32 object-cover rounded">
+            <img src="/public/images/food-extra3.jpg" class="w-full h-32 object-cover rounded">
+            <img src="/public/images/food-extra4.jpg" class="w-full h-32 object-cover rounded">
+          </div>
         </div>
         
         <!-- Project Card 2 -->
@@ -223,7 +234,9 @@
           <div class="relative h-64">
             <img src="./public/images/9fc04fb2-4254-4818-81c2-ff613895737d.jpeg" alt="Education Support Program" class="w-full h-full object-cover object-top">
             <div class="absolute inset-0 bg-primary bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center project-overlay">
-              <a href="#" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">View Details</a>
+              <button class="view-more-btn bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">
+                View More
+              </button>
             </div>
           </div>
           <div class="p-6">
@@ -242,14 +255,23 @@
               <span class="text-sm font-medium">75 children enrolled</span>
             </div>
           </div>
+          <!-- Hidden additional images -->
+          <div class="more-images hidden p-4 bg-gray-50 grid grid-cols-2 gap-2">
+            <img src="/public/images/edu-extra1.jpg" class="w-full h-32 object-cover rounded">
+            <img src="/public/images/edu-extra2.jpg" class="w-full h-32 object-cover rounded">
+            <img src="/public/images/edu-extra3.jpg" class="w-full h-32 object-cover rounded">
+            <img src="/public/images/edu-extra4.jpg" class="w-full h-32 object-cover rounded">
+          </div>
         </div>
         
         <!-- Project Card 3 -->
         <div class="bg-white rounded-lg overflow-hidden custom-shadow group">
           <div class="relative h-64">
-            <img src="./public/images/hospital1.jpeg">
+            <img src="./public/images/hospital1.jpeg" alt="Hospital Support Program" class="w-full h-full object-cover object-top">
             <div class="absolute inset-0 bg-primary bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center project-overlay">
-              <a href="#" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">View Details</a>
+              <button class="view-more-btn bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">
+                View More
+              </button>
             </div>
           </div>
           <div class="p-6">
@@ -268,6 +290,13 @@
               <span class="text-sm font-medium">1,000+ patients reached</span>
             </div>
           </div>
+          <!-- Hidden additional images -->
+          <div class="more-images hidden p-4 bg-gray-50 grid grid-cols-2 gap-2">
+            <img src="/public/images/hosp-extra1.jpg" class="w-full h-32 object-cover rounded">
+            <img src="/public/images/hosp-extra2.jpg" class="w-full h-32 object-cover rounded">
+            <img src="/public/images/hosp-extra3.jpg" class="w-full h-32 object-cover rounded">
+            <img src="/public/images/hosp-extra4.jpg" class="w-full h-32 object-cover rounded">
+          </div>
         </div>
         
         <!-- Project Card 4 -->
@@ -275,7 +304,9 @@
           <div class="relative h-64">
             <img src="./public/images/42253ae4-9300-43de-8df9-2b40cb2fce75.jpeg" alt="Women's Empowerment Initiative" class="w-full h-full object-cover object-top">
             <div class="absolute inset-0 bg-primary bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center project-overlay">
-              <a href="#" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">View Details</a>
+              <button class="view-more-btn bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors shadow-md whitespace-nowrap">
+                View More
+              </button>
             </div>
           </div>
           <div class="p-6">
@@ -294,6 +325,13 @@
               <span class="text-sm font-medium">50 women empowered</span>
             </div>
           </div>
+          <!-- Hidden additional images -->
+          <div class="more-images hidden p-4 bg-gray-50 grid grid-cols-2 gap-2">
+            <img src="/public/images/women-extra1.jpg" class="w-full h-32 object-cover rounded">
+            <img src="/public/images/women-extra2.jpg" class="w-full h-32 object-cover rounded">
+            <img src="/public/images/women-extra3.jpg" class="w-full h-32 object-cover rounded">
+            <img src="/public/images/women-extra4.jpg" class="w-full h-32 object-cover rounded">
+          </div>
         </div>
       </div>
       
@@ -302,6 +340,12 @@
       </div>
     </div>
   </section>
+  <style>
+  /* Optional smooth transition */
+  .more-images {
+    transition: all 0.3s ease;
+  }
+  </style>
 
   <!-- Impact Statistics Section -->
   <section class="py-16 bg-primary text-white">
@@ -921,6 +965,30 @@
           document.body.style.overflow = '';
         }
       });
+// View More functionality for project cards
+document.querySelectorAll('.view-more-btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation(); // Prevent event bubbling
+        
+        // Find the more-images div inside the same project card
+        const projectCard = this.closest('.bg-white');
+        const moreImages = projectCard.querySelector('.more-images');
+        
+        if (!moreImages) return; // Safety check
+        
+        // Toggle visibility
+        moreImages.classList.toggle('hidden');
+        
+        // Change button text
+        this.textContent = moreImages.classList.contains('hidden') ? 'View More' : 'View Less';
+        
+        // Scroll to show the expanded content if needed
+        if (!moreImages.classList.contains('hidden')) {
+            moreImages.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    });
+});
       
       // Amount buttons
       const amountButtons = document.querySelectorAll('.amount-btn');
