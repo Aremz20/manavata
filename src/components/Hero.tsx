@@ -6,7 +6,7 @@ const Hero = () => {
     <section 
       className="relative bg-brand-blue min-h-[75vh] flex items-center text-white"
       style={{
-        backgroundImage: "linear-gradient(rgba(14, 51, 86, 0.85), rgba(14, 51, 86, 0.85)), url('/placeholder.svg')",
+        backgroundImage: "linear-gradient(rgba(14, 51, 86, 0.85), rgba(14, 51, 86, 0.85)), url('/media/heroimage.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}
