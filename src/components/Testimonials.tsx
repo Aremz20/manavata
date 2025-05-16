@@ -17,7 +17,7 @@ const Testimonials = () => {
       quote: "Thanks to the agricultural training from Manavata, our community now grows enough food to feed ourselves and generate income.",
       name: "Maria Santos",
       location: "Honduras",
-      image: "/media.Maria Santos.png"
+      image: "/media/Maria Santos.png"
     }
   ];
 
