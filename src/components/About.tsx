@@ -63,7 +63,9 @@ const About = () => {
               </div>
             </div>
             
-            <Button className="outline-button mt-8">Learn Our Story</Button>
+            <Button className="bg-brand-gold text-brand-blue font-medium text-lg py-6 px-8">
+              Learn Our Story
+            </Button>
           </div>
         </div>
       </div>

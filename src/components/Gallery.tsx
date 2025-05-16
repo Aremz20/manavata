@@ -35,7 +35,9 @@ const Gallery = () => {
         </div>
         
         <div className="text-center mt-10">
-          <Button className="border border-brand-blue text-brand-blue font-medium">View More Photos</Button>
+        <Button className="bg-brand-gold text-brand-blue font-medium text-lg py-6 px-8">
+              View More Photos
+            </Button>
         </div>
       </div>
     </section>

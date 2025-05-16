@@ -19,7 +19,7 @@ const Hero = () => {
             <Button className="bg-brand-gold text-brand-blue font-medium text-lg py-6 px-8">
               Donate Now
             </Button>
-            <Button variant="outline" className="border-white text-white font-medium text-lg py-6 px-8">
+            <Button className="bg-brand-gold text-brand-blue font-medium text-lg py-6 px-8">
               Learn More
             </Button>
           </div>

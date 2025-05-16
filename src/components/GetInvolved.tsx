@@ -7,22 +7,22 @@ const GetInvolved = () => {
       title: "Volunteer With Us",
       description: "Join our team of dedicated volunteers and make a direct impact in our programs around the world.",
       buttonText: "Apply Now",
-      buttonVariant: "outline",
-      image: "/placeholder.svg"
+      buttonVariant: "secondary",
+      image: "/media/Volunteer With Us.png"
     },
     {
       title: "Make a Donation",
       description: "Your financial contribution helps us provide essential services to communities in need.",
       buttonText: "Donate Now",
       buttonVariant: "secondary",
-      image: "/placeholder.svg"
+      image: "/media/Make a Donation.png"
     },
     {
       title: "Become a Partner",
       description: "Organizations can join forces with us to amplify our impact through strategic partnerships.",
       buttonText: "Contact Us",
-      buttonVariant: "outline",
-      image: "/placeholder.svg"
+      buttonVariant: "secondary",
+      image: "/media/Become a Partner.png"
     }
   ];
 
