@@ -25,7 +25,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
           <div className="text-2xl font-bold flex items-center">
-            <img src="/media/logo.png" alt="Manavata Logo" className="h-8 w-8 mr-2" />
+            <img src="/media/logo.jpeg" alt="Manavata Logo" className="h-8 w-8 mr-2" />
             Manavata
           </div>
         </div>

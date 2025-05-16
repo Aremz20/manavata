@@ -5,19 +5,19 @@ const Testimonials = () => {
       quote: "The support from Manavata has transformed our village. We now have clean water and our children can attend school regularly.",
       name: "Sarah Ahmed",
       location: "Yemen",
-      image: "/placeholder.svg"
+      image: "/media/Sarah Ahmed.png"
     },
     {
       quote: "When the floods destroyed our home, Manavata was there with emergency supplies and helped us rebuild. We are forever grateful.",
       name: "Abdul Rahman",
       location: "Pakistan",
-      image: "/placeholder.svg"
+      image: "/media/Abdul Rahman.png"
     },
     {
       quote: "Thanks to the agricultural training from Manavata, our community now grows enough food to feed ourselves and generate income.",
       name: "Maria Santos",
       location: "Honduras",
-      image: "/placeholder.svg"
+      image: "/media.Maria Santos.png"
     }
   ];
 
