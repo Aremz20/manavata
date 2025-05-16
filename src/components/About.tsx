@@ -9,7 +9,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img 
-              src="./../public/media/1cfd5f9c-0a32-4c27-8305-9473591bd624.jpeg" 
+              src="/media/1cfd5f9c-0a32-4c27-8305-9473591bd624.jpeg" 
               alt="People working together" 
               className="rounded-lg shadow-md w-full h-auto object-cover"
               style={{ aspectRatio: "4/3" }}
