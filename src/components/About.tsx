@@ -47,8 +47,8 @@ const About = () => {
                     <circle cx="12" cy="12" r="10"/>
                   </svg>
                 </div>
-                <h3 className="font-bold text-lg">12</h3>
-                <p className="text-sm text-gray-600">Countries</p>
+                <h3 className="font-bold text-lg">1</h3>
+                <p className="text-sm text-gray-600">Nigeria</p>
               </div>
               
               <div className="bg-white p-4 rounded-lg shadow text-center">
@@ -58,7 +58,7 @@ const About = () => {
                     <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/>
                   </svg>
                 </div>
-                <h3 className="font-bold text-lg">8</h3>
+                <h3 className="font-bold text-lg">5</h3>
                 <p className="text-sm text-gray-600">Languages</p>
               </div>
             </div>
