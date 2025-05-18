@@ -1,9 +1,9 @@
 
 const Stats = () => {
   const stats = [
-    { value: "5,000+", label: "People Helped" },
-    { value: "12", label: "Countries" },
-    { value: "8", label: "Languages" },
+    { value: "150", label: "People Helped" },
+    { value: "1", label: "Countries" },
+    { value: "3", label: "Languages" },
     { value: "200+", label: "Volunteers" }
   ];
 
