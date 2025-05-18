@@ -106,7 +106,7 @@ const DonationModal = ({ isOpen, onClose }: DonationModalProps) => {
             <div className="space-y-1 text-sm bg-gray-50 p-3 rounded-md">
               <div>
                 <span className="font-medium">Bank Name: </span>
-                First Bank of Nigeria
+                United Bank fo Africa
               </div>
               <div>
                 <span className="font-medium">Account Name: </span>
@@ -114,12 +114,9 @@ const DonationModal = ({ isOpen, onClose }: DonationModalProps) => {
               </div>
               <div>
                 <span className="font-medium">Account Number: </span>
-                0123456789
+                1027783699
               </div>
-              <div>
-                <span className="font-medium">Sort Code: </span>
-                012345
-              </div>
+            
               <p className="text-xs text-gray-500 mt-2">Please use your name as payment reference</p>
             </div>
           </div>
