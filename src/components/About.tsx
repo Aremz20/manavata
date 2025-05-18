@@ -17,7 +17,7 @@ const About = () => {
           </div>
           <div>
             <p className="text-gray-700 mb-6">
-              Founded in 2010, Manavata has been at the forefront of humanitarian efforts in regions affected by conflict and natural disasters. Our organization began with a small group of dedicated volunteers and has grown into a global network of partners and supporters committed to making a difference.
+              Founded in 2023, Manavata has been at the forefront of humanitarian efforts in regions affected by conflict and natural disasters. Our organization began with a small group of dedicated volunteers and has grown into a global network of partners and supporters committed to making a difference.
             </p>
             <p className="text-gray-700 mb-6">
               We work closely with local communities to understand their unique needs and develop programs that address immediate concerns while building long-term resilience and self-sufficiency.
@@ -32,7 +32,7 @@ const About = () => {
                     <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>
                   </svg>
                 </div>
-                <h3 className="font-bold text-lg">15+ Years</h3>
+                <h3 className="font-bold text-lg">2+ Years</h3>
                 <p className="text-sm text-gray-600">Experience</p>
               </div>
               

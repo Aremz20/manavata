@@ -44,7 +44,7 @@ const DonationModal = ({ isOpen, onClose }: DonationModalProps) => {
             onClick={onClose}
             aria-label="Close"
           >
-            <X className="h-4 w-4" />
+        
           </Button>
           <p className="text-left text-sm text-gray-600 mt-2">
             Your donation helps us provide essential support to children, widows, and

@@ -1,28 +1,42 @@
-
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
+import DonationModal from './DonationModal';
 
 const GetInvolved = () => {
+  const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
+
+  const openDonationModal = () => {
+    setIsDonationModalOpen(true);
+  };
+
+  const closeDonationModal = () => {
+    setIsDonationModalOpen(false);
+  };
+
   const ways = [
     {
       title: "Volunteer With Us",
       description: "Join our team of dedicated volunteers and make a direct impact in our programs around the world.",
       buttonText: "Apply Now",
       buttonVariant: "secondary",
-      image: "/media/Volunteer With Us.png"
+      image: "/media/Volunteer With Us.png",
+      onClick: null
     },
     {
       title: "Make a Donation",
       description: "Your financial contribution helps us provide essential services to communities in need.",
       buttonText: "Donate Now",
       buttonVariant: "secondary",
-      image: "/media/Make a Donation.png"
+      image: "/media/Make a Donation.png",
+      onClick: () => openDonationModal()
     },
     {
       title: "Become a Partner",
       description: "Organizations can join forces with us to amplify our impact through strategic partnerships.",
       buttonText: "Contact Us",
       buttonVariant: "secondary",
-      image: "/media/Become a Partner.png"
+      image: "/media/Become a Partner.png",
+      onClick: null
     }
   ];
 
@@ -33,7 +47,7 @@ const GetInvolved = () => {
         <p className="text-center text-gray-700 max-w-2xl mx-auto mb-10">
           There are many ways you can support our mission and help bring hope to communities in need.
         </p>
-        
+
         <div className="grid md:grid-cols-3 gap-8">
           {ways.map((way, index) => (
             <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md">
@@ -47,6 +61,7 @@ const GetInvolved = () => {
                 <p className="text-gray-700 mb-6">{way.description}</p>
                 <Button 
                   className={way.buttonVariant === "secondary" ? "bg-brand-gold text-brand-blue font-medium" : "border border-brand-blue text-brand-blue font-medium"}
+                  onClick={way.onClick ?? undefined}
                 >
                   {way.buttonText}
                 </Button>
@@ -55,6 +70,9 @@ const GetInvolved = () => {
           ))}
         </div>
       </div>
+
+      {/* Donation Modal */}
+      <DonationModal isOpen={isDonationModalOpen} onClose={closeDonationModal} />
     </section>
   );
 };
