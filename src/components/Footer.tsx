@@ -43,7 +43,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-start">
                 <span className="mr-2">📍</span>
-                <span>123 Hope Street, Global City, 10001</span>
+                <span>Abuja, Nigeria</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2">📧</span>
