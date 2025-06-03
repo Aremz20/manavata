@@ -3,9 +3,9 @@ const Testimonials = () => {
   const testimonials = [
     {
       quote: "The support from Manavata has transformed our village. We now have clean water and our children can attend school regularly.",
-      name: "Sarah Ahmed",
-      location: "Yemen",
-      image: "/media/Sarah Ahmed.png"
+      name: "Princess",
+      location: "Abuja",
+      image: "/media/Profile Photo.jpg"
     },
     {
       quote: "When the floods destroyed our home, Manavata was there with emergency supplies and helped us rebuild. We are forever grateful.",
