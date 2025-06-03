@@ -2,22 +2,22 @@
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "The support from Manavata has transformed our village. We now have clean water and our children can attend school regularly.",
+      quote: "Distributing food with Manavata showed me how many families are suffering silently. I’m proud to be part of a team that brings real hope and help",
       name: "Princess",
       location: "Abuja",
       image: "/media/Profile Photo.jpg"
     },
     {
-      quote: "When the floods destroyed our home, Manavata was there with emergency supplies and helped us rebuild. We are forever grateful.",
+      quote: "We are forever grateful to Manavata .",
       name: "Abdul Rahman",
-      location: "Pakistan",
-      image: "/media/Abdul Rahman.png"
+      location: "Abuja",
+      image: "/media/Profile Photo.jpg"
     },
     {
-      quote: "Thanks to the agricultural training from Manavata, our community now grows enough food to feed ourselves and generate income.",
-      name: "Maria Santos",
-      location: "Honduras",
-      image: "/media/Maria Santos.png"
+      quote: "Thanks to Manavata My hospital bills have been sorted out.",
+      name: "Maria",
+      location: "Abuja",
+      image: "/media/Profile Photo.jpg"
     }
   ];
 
