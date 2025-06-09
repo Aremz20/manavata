@@ -18,19 +18,6 @@ const Learn = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
              
-              
-              
-              
-              <div className="bg-white p-4 rounded-lg shadow text-center">
-                <div className="text-brand-blue mb-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto">
-                    <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"/>
-                    <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/>
-                  </svg>
-                </div>
-                <h3 className="font-bold text-lg">5</h3>
-                <p className="text-sm text-gray-600">Languages</p>
-              </div>
             </div>
         
           </div>
