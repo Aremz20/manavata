@@ -62,10 +62,7 @@ const About = () => {
                 <p className="text-sm text-gray-600">Languages</p>
               </div>
             </div>
-            
-            <Button className="bg-brand-gold text-brand-blue font-medium text-lg py-6 px-8">
-              Learn Our Story
-            </Button>
+        
           </div>
         </div>
       </div>
