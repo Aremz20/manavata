@@ -1,43 +1,41 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import DonationModal from './DonationModal';
+import DonationModal from "./DonationModal";
 
 const GetInvolved = () => {
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
 
-  const openDonationModal = () => {
-    setIsDonationModalOpen(true);
-  };
-
-  const closeDonationModal = () => {
-    setIsDonationModalOpen(false);
-  };
+  const openDonationModal = () => setIsDonationModalOpen(true);
+  const closeDonationModal = () => setIsDonationModalOpen(false);
 
   const ways = [
     {
       title: "Volunteer With Us",
-      description: "Join our team of dedicated volunteers and make a direct impact in our programs around the world.",
+      description:
+        "Join our team of dedicated volunteers and make a direct impact in our programs around the world.",
       buttonText: "Apply Now",
       buttonVariant: "secondary",
       image: "/media/Volunteer With Us.png",
-      onClick: null
+      href: "#contact", // anchor scroll
     },
     {
       title: "Make a Donation",
-      description: "Your financial contribution helps us provide essential services to communities in need.",
+      description:
+        "Your financial contribution helps us provide essential services to communities in need.",
       buttonText: "Donate Now",
       buttonVariant: "secondary",
       image: "/media/Make a Donation.png",
-      onClick: () => openDonationModal()
+      onClick: openDonationModal,
     },
     {
       title: "Become a Partner",
-      description: "Organizations can join forces with us to amplify our impact through strategic partnerships.",
+      description:
+        "Organizations can join forces with us to amplify our impact through strategic partnerships.",
       buttonText: "Contact Us",
       buttonVariant: "secondary",
       image: "/media/Become a Partner.png",
-      onClick: null
-    }
+      href: "#contact", // anchor scroll
+    },
   ];
 
   return (
@@ -50,28 +48,55 @@ const GetInvolved = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {ways.map((way, index) => (
-            <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md">
-              <img 
-                src={way.image} 
-                alt={way.title} 
+            <div
+              key={index}
+              className="bg-white rounded-lg overflow-hidden shadow-md"
+            >
+              <img
+                src={way.image}
+                alt={way.title}
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-bold text-brand-blue mb-3">{way.title}</h3>
+                <h3 className="text-xl font-bold text-brand-blue mb-3">
+                  {way.title}
+                </h3>
                 <p className="text-gray-700 mb-6">{way.description}</p>
-                <Button 
-                  className={way.buttonVariant === "secondary" ? "bg-brand-gold text-brand-blue font-medium" : "border border-brand-blue text-brand-blue font-medium"}
-                  onClick={way.onClick ?? undefined}
-                >
-                  {way.buttonText}
-                </Button>
+
+                {way.href ? (
+                  <Button
+                    asChild
+                    className={
+                      way.buttonVariant === "secondary"
+                        ? "bg-brand-gold text-brand-blue font-medium"
+                        : "border border-brand-blue text-brand-blue font-medium"
+                    }
+                  >
+                    <a
+                      href={way.href}
+                      className="hover:text-brand-gold transition-colors"
+                    >
+                      {way.buttonText}
+                    </a>
+                  </Button>
+                ) : (
+                  <Button
+                    className={
+                      way.buttonVariant === "secondary"
+                        ? "bg-brand-gold text-brand-blue font-medium"
+                        : "border border-brand-blue text-brand-blue font-medium"
+                    }
+                    onClick={way.onClick}
+                  >
+                    {way.buttonText}
+                  </Button>
+                )}
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Donation Modal */}
       <DonationModal isOpen={isDonationModalOpen} onClose={closeDonationModal} />
     </section>
   );

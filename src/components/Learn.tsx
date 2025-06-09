@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 const Learn = () => {
   return (
     <section
-      className="min-h-screen bg-gray-50 py-16 flex items-center"
+      className="min-h-screen bg-gray-50 py-16 flex flex-col justify-center items-center"
       id="about"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-5">
         <h2 className="section-title mb-8 text-center">Learn About Manavata</h2>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-3xl mx-auto text-center mb-8">
           <div>
             <p className="text-gray-700 mb-6">
               Founded in 2023, Manavata has been at the forefront of humanitarian
@@ -24,7 +24,7 @@ const Learn = () => {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-              {/* Future content (e.g. stats or images) can go here */}
+              {/* Reserved space for future content */}
             </div>
           </div>
         </div>
