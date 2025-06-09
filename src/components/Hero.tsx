@@ -43,7 +43,7 @@ const Hero = () => {
           {/* Donation Modal */}
       <DonationModal isOpen={isDonationModalOpen} onClose={closeDonationModal} />
             <Button className="bg-brand-gold text-brand-blue font-medium text-lg py-6 px-8">
-              Learn More
+              Learn Our Story
             </Button>
           </div>
         </div>
