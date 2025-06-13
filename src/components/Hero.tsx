@@ -37,7 +37,7 @@ const Hero = () => {
               asChild
               className="bg-brand-gold text-brand-blue font-medium text-lg py-6 px-8"
             >
-              <a href="#learn" className="hover:text-brand-gold transition-colors">
+              <a href="#about" className="hover:text-brand-gold transition-colors">
                 Learn Our Story
               </a>
             </Button>
