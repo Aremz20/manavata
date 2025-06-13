@@ -17,10 +17,13 @@ const About = () => {
           </div>
           <div>
             <p className="text-gray-700 mb-6">
-              Founded in 2023, Manavata has been at the forefront of humanitarian efforts in regions affected by conflict and natural disasters. Our organization began with a small group of dedicated volunteers and has grown into a global network of partners and supporters committed to making a difference.
+              Manavata - A foundation for succour
             </p>
             <p className="text-gray-700 mb-6">
-              We work closely with local communities to understand their unique needs and develop programs that address immediate concerns while building long-term resilience and self-sufficiency.
+              Founded in 2023, Manavata was born out of a deep desire to bring hope, dignity, and support to those most in need — abused children, orphans, widows, and the marginalized. With a vision to create a sustainable and impactful charitable organization, Manavata is built on the pillars of integrity, empathy, professionalism, and inclusivity.
+            </p>
+            <p className="text-gray-700 mb-6">
+             We are driven by a simple but powerful mission To efficiently and effectively reach out to the vulnerable and provide meaningful support.
             </p>
             <p className="text-gray-700 mb-6">
               Founded in 2023, Manavata has been at the forefront of humanitarian efforts in regions affected by conflict and natural disasters. Our organization began with a small group of dedicated volunteers and has grown into a global network of partners and supporters committed to making a difference.
