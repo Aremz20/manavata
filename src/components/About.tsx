@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section className="section-padding bg-gray-50" id="about">
       <div className="container mx-auto">
-        <h2 className="section-title">About Manavata</h2>
+        <h2 className="section-title">Learn About Manavata</h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img 
