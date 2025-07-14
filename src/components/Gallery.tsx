@@ -52,16 +52,16 @@ const Gallery = () => {
           {galleryImages.map((image, index) => (
             <div
               key={index}
-              className="aspect-square overflow-hidden rounded-lg shadow-md cursor-pointer group"
+              className="gallery-item aspect-square overflow-hidden rounded-lg shadow-md cursor-pointer group relative"
               onClick={() => openImage(index)}
             >
               <img
                 src={image || "/placeholder.svg"}
                 alt={`Gallery image ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110 group-hover:brightness-75"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <div className="text-white text-sm font-medium">Click to expand</div>
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div className="text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full">Click to expand</div>
               </div>
             </div>
           ))}
